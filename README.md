@@ -1,9 +1,11 @@
 # Bitoshi Blockamoto Game Engine
 
 ## Overview
+
 The Bitoshi Blockamoto Game Engine leverages Bitcoin's UTXO model to create a decentralized, scalable, and modular gaming framework. It integrates game mechanics and blockchain programmability, enabling dynamic and secure multiplayer experiences.
 
 ## Key Features
+
 - **Bitcoin-First Design**: Built around Bitcoin's UTXO model to ensure decentralization, security, and resilience.
 - **Object-Oriented Architecture**: Encapsulates game components like players, assets, and gameplay mechanics into reusable objects.
 - **Local Database**: Efficiently stores and manages UTXO data for offline play and synchronization with the blockchain.
@@ -30,4 +32,3 @@ Bitoshi-Blockamoto-Game-Engine/
     ├── test_blockchain_sync.py # Unit tests for blockchain sync
     ├── test_utxo_manager.py    # Unit tests for UTXO management
     ├── test_asset_manager.py   # Unit tests for asset management
-
