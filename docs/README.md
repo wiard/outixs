@@ -11,6 +11,7 @@ The Bitoshi Blockamoto Game Engine leverages Bitcoin's UTXO model to create a de
 - Scalability: Supports multiplayer games and scalable applications through peer-to-peer synchronization.
 
 ## Project Structure
+```
 
 Bitoshi-Blockamoto-Game-Engine/
 ├── docs/
@@ -30,3 +31,5 @@ Bitoshi-Blockamoto-Game-Engine/
     ├── test_utxo_manager.py    # Unit tests for UTXO management
     ├── test_asset_manager.py   # Unit tests for asset management
 
+  ```  
+   
