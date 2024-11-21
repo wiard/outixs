@@ -1,38 +1,32 @@
+# Bitoshi Blockamoto Game Engine
+
+## Overview
+The Bitoshi Blockamoto Game Engine leverages Bitcoin's UTXO model to create a decentralized, scalable, and modular gaming framework. It integrates game mechanics and blockchain programmability, enabling developers to build immersive, decentralized games with Bitcoin as the core layer.
+
+## Key Features
+- Bitcoin-First Design: Built around Bitcoin's UTXO model to ensure decentralization, security, and resilience.
+- Object-Oriented Architecture: Encapsulates game components like players, assets, and gameplay mechanics into reusable objects.
+- Local Database: Efficiently stores and manages UTXO data for offline play and synchronization with the blockchain.
+- Modularity: Includes core modules like `blockchain_sync.py`, `utxo_manager.py`, and `asset_manager.py` for flexible development.
+- Scalability: Supports multiplayer games and scalable applications through peer-to-peer synchronization.
+
 ## Project Structure
 
 Bitoshi-Blockamoto-Game-Engine/
-├── src/
-│   ├── core/
-│   │   ├── blockchain_sync.py
-│   │   ├── utxo_manager.py
-│   │   ├── asset_manager.py
-│   ├── models/
-│   │   ├── player.py
-│   │   ├── game_room.py
-│   │   ├── utxo.py
-│   ├── utils/
-│   │   ├── database_utils.py
-│   │   ├── sync_utils.py
-├── database/
-│   ├── utxo.db
-│   ├── migrations/
-│   │   ├── initial.sql
-├── scripts/
-│   ├── deploy.sh
-│   ├── setup_database.py
-│   ├── setup_env.sh
-├── tests/
-│   ├── core/
-│   │   ├── test_blockchain_sync.py
-│   │   ├── test_utxo_manager.py
-│   │   ├── test_asset_manager.py
-│   ├── models/
-│   │   ├── test_player.py
-│   │   ├── test_game_room.py
-│   │   ├── test_utxo.py
 ├── docs/
-│   ├── README.md
-│   ├── technical_overview.md
-│   ├── user_guide.md
-├── .gitignore
-└── LICENSE
+│   └── README.md         # Project documentation
+├── src/
+│   ├── blockchain_sync.py # Blockchain synchronization module
+│   ├── utxo_manager.py    # UTXO management module
+│   ├── asset_manager.py   # Asset management module
+├── database/
+│   └── utxo.db            # Local database for UTXO storage
+├── scripts/
+│   ├── deploy.sh          # Deployment script
+│   ├── setup_database.py  # Database setup script
+│   ├── setup_env.sh       # Environment setup script
+└── tests/
+    ├── test_blockchain_sync.py # Unit tests for blockchain sync
+    ├── test_utxo_manager.py    # Unit tests for UTXO management
+    ├── test_asset_manager.py   # Unit tests for asset management
+
