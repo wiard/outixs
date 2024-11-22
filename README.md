@@ -19,22 +19,34 @@ Bitoshi-Blockamoto-Game-Engine/
 ├── docs/
 │   └── README.md         # Project documentation
 ├── src/
-│   ├── blockchain_sync.py # Blockchain synchronization module
-│   ├── utxo_manager.py    # UTXO management module
-│   ├── asset_manager.py   # Asset management module
+│   ├── blockchain_sync.py    # Blockchain synchronization module
+│   ├── utxo_manager.py       # UTXO management module
+│   ├── asset_manager.py      # Asset management module
+│   ├── peer_network.py       # Peer-to-peer communication module
+│   ├── kernel_controller.py  # Manages kernel operations and Raspberry Pi interfacing
+│   ├── game_logic.py         # Game logic and mechanics module
 ├── database/
-│   └── utxo.db            # Local database for UTXO storage
+│   └── utxo.db               # Local database for UTXO storage
+├── kernel/
+│   ├── start_kernel.sh       # Shell script to initialize the kernel
+│   ├── kernel_config.json    # Configuration for Raspberry Pi kernel operations
+│   ├── peer_nodes.json       # Stores information about connected nodes
 ├── scripts/
-│   ├── deploy.sh          # Deployment script
-│   ├── setup_database.py  # Database setup script
-│   ├── setup_env.sh       # Environment setup script
-└── tests/
-    ├── test_blockchain_sync.py # Unit tests for blockchain sync
-    ├── test_utxo_manager.py    # Unit tests for UTXO management
-    ├── test_asset_manager.py   # Unit tests for asset management
+│   ├── deploy.sh             # Deployment script
+│   ├── setup_database.py     # Database setup script
+│   ├── setup_env.sh          # Environment setup script
+├── tests/
+│   ├── test_blockchain_sync.py # Unit tests for blockchain sync
+│   ├── test_utxo_manager.py    # Unit tests for UTXO management
+│   ├── test_asset_manager.py   # Unit tests for asset management
+│   ├── test_peer_network.py    # Unit tests for peer-to-peer networking
+│   ├── test_game_logic.py      # Unit tests for game logic
+└── utilities/
+    ├── logger.py             # Centralized logging utility
+    ├── config_loader.py      # Loads and validates configuration files
+    ├── data_serializer.py    # Serialization and deserialization utilities
 
 ```
-
 ## Vision: Block-Oriented Approach
 
 The Block-Oriented Approach revolutionizes blockchain applications by treating UTXOs as the fundamental building blocks. This method aligns perfectly with Bitcoin's core principles of decentralization, efficiency, and security while unlocking powerful programmability.
