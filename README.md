@@ -20,52 +20,59 @@ This creates a dynamic ecosystem powered by Bitcoin's UTXO model.
 ## Project Structure
 
 ```plaintext
-Bitoshi-Blockamoto-Game-Engine
+
+Bitoshi-Blockamoto-Game-Engine/
 ├── README.md
-├── database
-│   ├── utxo.db                       # Local database for UTXO storage
-│   └── marketplace.db                # Database for marketplace items and transactions
-├── docs
-│   └── README.md
-├── kernel
-│   ├── kernel_config.json
-│   ├── peer_nodes.json
-│   └── start_kernel.sh
-├── scripts
-│   ├── deploy.sh
-│   ├── setup_database.py
-│   └── setup_env.sh
-├── src
-│   ├── assets
-│   │   ├── asset_manager.py          # Manages game assets
-│   │   └── marketplace_items.py      # Handles marketplace item logic
-│   ├── core
-│   │   ├── blockchain_sync.py
-│   │   └── utxo_manager.py
-│   ├── game_logic.py
-│   ├── gameplay
-│   │   ├── engine.py
-│   │   └── level_loader.py
-│   ├── kernel_controller.py
-│   ├── networking
-│   │   ├── peer_sync.py
-│   │   └── marketplace_sync.py       # Synchronizes marketplace data across peers
-│   ├── peer_network.py
-│   └── marketplace                   # Marketplace-specific functionality
-│       ├── marketplace_manager.py    # Core marketplace logic
-│       ├── transaction_handler.py    # Processes trades and transactions
-│       └── coin_system.py            # Implements a custom coin system
-├── tests
-│   ├── test_game_logic.py
-│   ├── test_peer_network.py
-│   ├── test_utxo_manager.py
-│   ├── test_marketplace_manager.py   # Unit tests for marketplace logic
-│   ├── test_transaction_handler.py   # Unit tests for transaction handling
-│   └── test_coin_system.py           # Unit tests for custom coin system
-└── utilities
-    ├── config_loader.py
-    ├── data_serializer.py
-    └── logger.py
+├── database/
+│   ├── utxo.db                      # Local database for UTXO storage
+│   └── marketplace.db               # Database for marketplace items and transactions
+├── docs/
+│   └── README.md                    # Project documentation
+├── kernel/
+│   ├── kernel_config.json           # Configuration for kernel operations
+│   ├── peer_nodes.json              # Connected peer nodes information
+│   └── start_kernel.sh              # Script to initialize the kernel
+├── interfaces/                      # Contains all interface definitions
+│   ├── game_component.py            # Abstract base class for game components
+│   ├── marketplace_interface.py     # Abstract base class for marketplace-related modules
+│   ├── network_interface.py         # Abstract base class for networking modules
+│   └── kernel_interface.py          # Abstract base class for kernel operations
+├── scripts/
+│   ├── deploy.sh                    # Deployment script
+│   ├── setup_database.py            # Database setup script
+│   └── setup_env.sh                 # Environment setup script
+├── src/
+│   ├── assets/
+│   │   ├── asset_manager.py         # Manages game assets
+│   │   └── marketplace_items.py     # Handles marketplace item logic
+│   ├── core/
+│   │   ├── blockchain_sync.py       # Syncs UTXOs from the blockchain
+│   │   └── utxo_manager.py          # Handles UTXO operations
+│   ├── game_logic.py                # Contains game rules and mechanics
+│   ├── gameplay/
+│   │   ├── engine.py                # Core gameplay engine
+│   │   └── level_loader.py          # Loads game levels
+│   ├── kernel_controller.py         # Interfaces with kernel operations
+│   ├── marketplace/
+│   │   ├── coin_system.py           # Implements a custom coin system
+│   │   ├── marketplace_manager.py   # Core marketplace logic
+│   │   └── transaction_handler.py   # Processes trades and transactions
+│   ├── networking/
+│   │   ├── peer_sync.py             # Handles peer-to-peer synchronization
+│   │   └── marketplace_sync.py      # Synchronizes marketplace data across peers
+│   └── peer_network.py              # Manages overall peer networking
+├── tests/
+│   ├── test_game_logic.py
+│   ├── test_peer_network.py
+│   ├── test_utxo_manager.py
+│   ├── test_marketplace_manager.py  # Unit tests for marketplace logic
+│   ├── test_transaction_handler.py  # Unit tests for transaction handling
+│   └── test_coin_system.py          # Unit tests for custom coin system
+└── utilities/
+    ├── config_loader.py             # Loads and validates configuration files
+    ├── data_serializer.py           # Serialization utilities
+    └── logger.py                    # Centralized logging utility
+
 
 ```
 ## Vision: Block-Oriented Approach
