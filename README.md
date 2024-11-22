@@ -20,40 +20,52 @@ This creates a dynamic ecosystem powered by Bitcoin's UTXO model.
 ## Project Structure
 
 ```plaintext
-Bitoshi-Blockamoto-Game-Engine/
-├── docs/
-│   └── README.md               # Project documentation
-├── src/
-│   ├── blockchain_sync.py      # Blockchain synchronization module
-│   ├── utxo_manager.py         # UTXO management module
-│   ├── asset_manager.py        # Asset management module
-│   ├── peer_network.py         # Peer-to-peer communication module
-│   ├── kernel_controller.py    # Manages kernel operations and Raspberry Pi interfacing
-│   ├── game_logic.py           # Game rules and mechanics module
-│   ├── marketplace_manager.py  # Manages marketplace creation and operations
-│   ├── token_issuer.py         # Module for creating and managing in-game tokens
-│   ├── interoperability.py     # Manages cross-marketplace asset and token swapping
-├── database/
-│   └── utxo.db                 # Local database for UTXO storage
-├── kernel/
-│   ├── start_kernel.sh         # Shell script to initialize the kernel
-│   ├── kernel_config.json      # Configuration for Raspberry Pi kernel operations
-│   ├── peer_nodes.json         # Stores information about connected nodes
-├── scripts/
-│   ├── deploy.sh               # Deployment script
-│   ├── setup_database.py       # Database setup script
-│   ├── setup_env.sh            # Environment setup script
-├── tests/
-│   ├── test_game_logic.py      # Unit tests for game logic
-│   ├── test_peer_network.py    # Unit tests for peer-to-peer networking
-│   ├── test_utxo_manager.py    # Unit tests for UTXO management
-│   ├── test_marketplace.py     # Unit tests for marketplace module
-│   ├── test_token_issuer.py    # Unit tests for token issuance
-│   ├── test_interoperability.py# Unit tests for cross-marketplace interoperability
-└── utilities/
-    ├── logger.py               # Centralized logging utility
-    ├── config_loader.py        # Loads and validates configuration files
-    ├── data_serializer.py      # Serialization and deserialization utilities
+Bitoshi-Blockamoto-Game-Engine
+├── README.md
+├── database
+│   ├── utxo.db                       # Local database for UTXO storage
+│   └── marketplace.db                # Database for marketplace items and transactions
+├── docs
+│   └── README.md
+├── kernel
+│   ├── kernel_config.json
+│   ├── peer_nodes.json
+│   └── start_kernel.sh
+├── scripts
+│   ├── deploy.sh
+│   ├── setup_database.py
+│   └── setup_env.sh
+├── src
+│   ├── assets
+│   │   ├── asset_manager.py          # Manages game assets
+│   │   └── marketplace_items.py      # Handles marketplace item logic
+│   ├── core
+│   │   ├── blockchain_sync.py
+│   │   └── utxo_manager.py
+│   ├── game_logic.py
+│   ├── gameplay
+│   │   ├── engine.py
+│   │   └── level_loader.py
+│   ├── kernel_controller.py
+│   ├── networking
+│   │   ├── peer_sync.py
+│   │   └── marketplace_sync.py       # Synchronizes marketplace data across peers
+│   ├── peer_network.py
+│   └── marketplace                   # Marketplace-specific functionality
+│       ├── marketplace_manager.py    # Core marketplace logic
+│       ├── transaction_handler.py    # Processes trades and transactions
+│       └── coin_system.py            # Implements a custom coin system
+├── tests
+│   ├── test_game_logic.py
+│   ├── test_peer_network.py
+│   ├── test_utxo_manager.py
+│   ├── test_marketplace_manager.py   # Unit tests for marketplace logic
+│   ├── test_transaction_handler.py   # Unit tests for transaction handling
+│   └── test_coin_system.py           # Unit tests for custom coin system
+└── utilities
+    ├── config_loader.py
+    ├── data_serializer.py
+    └── logger.py
 
 ```
 ## Vision: Block-Oriented Approach
