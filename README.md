@@ -2,14 +2,20 @@
 
 ## Overview
 
-The Bitoshi Blockamoto Game Engine harnesses Bitcoin's UTXO model to build a decentralized, scalable, and modular gaming framework. By combining game mechanics with blockchain programmability, it offers secure, dynamic, and collaborative multiplayer experiences that align with Bitcoin's principles of decentralization and resilience.
+The Bitoshi Blockamoto Game Engine evolves beyond a traditional game engine to a decentralized economic platform. It enables games to automatically generate:
+- A native decentralized marketplace.
+- In-game tokens for transactions and rewards.
+- Interoperability for asset and token swapping across games.
+This creates a dynamic ecosystem powered by Bitcoin's UTXO model.
 
- ## Key Features
-- **Bitcoin-First Design**: Anchored in Bitcoin's UTXO model to ensure trustlessness, security, and a decentralized infrastructure.
-- **Object-Oriented Architecture**: Encapsulates game elements such as players, assets, and mechanics into modular, reusable objects, fostering a flexible development environment.
-- **Local Database**: Utilizes an efficient local database to store and manage UTXO data for offline gameplay, while enabling seamless blockchain synchronization.
-- **Modularity**: Integrates essential modules like blockchain_sync.py, utxo_manager.py, and asset_manager.py, allowing developers to expand functionality with ease.
-- **Scalability**: Facilitates multiplayer games and large-scale applications through peer-to-peer synchronization, bypassing reliance on centralized servers.
+## Key Features
+
+- **Automatic Marketplace Creation**: Every game has its own marketplace for assets and collectibles.
+- **Native Token Issuance**: Generate in-game tokens to support economies.
+- **Cross-Marketplace Interoperability**: Trade assets and tokens between games in the network.
+- **Bitcoin-First Design**: Built around Bitcoin’s UTXO model for decentralization and security.
+- **Object-Oriented Architecture**: Encapsulates players, assets, and game components as objects.
+- **Scalable and Modular**: Peer-to-peer synchronization supports multiplayer and scalable development.
 
 ## Project Structure
 
