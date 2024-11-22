@@ -16,34 +16,38 @@ The Bitoshi Blockamoto Game Engine harnesses Bitcoin's UTXO model to build a dec
 ```plaintext
 Bitoshi-Blockamoto-Game-Engine/
 ├── docs/
-│   └── README.md         # Project documentation
+│   └── README.md               # Project documentation
 ├── src/
-│   ├── blockchain_sync.py    # Blockchain synchronization module
-│   ├── utxo_manager.py       # UTXO management module
-│   ├── asset_manager.py      # Asset management module
-│   ├── peer_network.py       # Peer-to-peer communication module
-│   ├── kernel_controller.py  # Manages kernel operations and Raspberry Pi interfacing
-│   ├── game_logic.py         # Game logic and mechanics module
+│   ├── blockchain_sync.py      # Blockchain synchronization module
+│   ├── utxo_manager.py         # UTXO management module
+│   ├── asset_manager.py        # Asset management module
+│   ├── peer_network.py         # Peer-to-peer communication module
+│   ├── kernel_controller.py    # Manages kernel operations and Raspberry Pi interfacing
+│   ├── game_logic.py           # Game rules and mechanics module
+│   ├── marketplace_manager.py  # Manages marketplace creation and operations
+│   ├── token_issuer.py         # Module for creating and managing in-game tokens
+│   ├── interoperability.py     # Manages cross-marketplace asset and token swapping
 ├── database/
-│   └── utxo.db               # Local database for UTXO storage
+│   └── utxo.db                 # Local database for UTXO storage
 ├── kernel/
-│   ├── start_kernel.sh       # Shell script to initialize the kernel
-│   ├── kernel_config.json    # Configuration for Raspberry Pi kernel operations
-│   ├── peer_nodes.json       # Stores information about connected nodes
+│   ├── start_kernel.sh         # Shell script to initialize the kernel
+│   ├── kernel_config.json      # Configuration for Raspberry Pi kernel operations
+│   ├── peer_nodes.json         # Stores information about connected nodes
 ├── scripts/
-│   ├── deploy.sh             # Deployment script
-│   ├── setup_database.py     # Database setup script
-│   ├── setup_env.sh          # Environment setup script
+│   ├── deploy.sh               # Deployment script
+│   ├── setup_database.py       # Database setup script
+│   ├── setup_env.sh            # Environment setup script
 ├── tests/
-│   ├── test_blockchain_sync.py # Unit tests for blockchain sync
-│   ├── test_utxo_manager.py    # Unit tests for UTXO management
-│   ├── test_asset_manager.py   # Unit tests for asset management
-│   ├── test_peer_network.py    # Unit tests for peer-to-peer networking
 │   ├── test_game_logic.py      # Unit tests for game logic
+│   ├── test_peer_network.py    # Unit tests for peer-to-peer networking
+│   ├── test_utxo_manager.py    # Unit tests for UTXO management
+│   ├── test_marketplace.py     # Unit tests for marketplace module
+│   ├── test_token_issuer.py    # Unit tests for token issuance
+│   ├── test_interoperability.py# Unit tests for cross-marketplace interoperability
 └── utilities/
-    ├── logger.py             # Centralized logging utility
-    ├── config_loader.py      # Loads and validates configuration files
-    ├── data_serializer.py    # Serialization and deserialization utilities
+    ├── logger.py               # Centralized logging utility
+    ├── config_loader.py        # Loads and validates configuration files
+    ├── data_serializer.py      # Serialization and deserialization utilities
 
 ```
 ## Vision: Block-Oriented Approach
