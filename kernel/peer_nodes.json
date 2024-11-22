@@ -1,0 +1,15 @@
+[
+  {
+    "peer_id": "peer_1",
+    "ip_address": "192.168.1.10",
+    "status": "active",
+    "last_sync": "2024-11-20T14:23:00Z"
+  },
+  {
+    "peer_id": "peer_2",
+    "ip_address": "192.168.1.15",
+    "status": "inactive",
+    "last_sync": "2024-11-19T11:45:00Z"
+  }
+]
+

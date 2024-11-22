@@ -1,0 +1,9 @@
+{
+  "node_name": "Bitoshi-Node",
+  "blockchain_sync_interval": 30,
+  "max_peers": 10,
+  "port": 8333,
+  "kernel_log_level": "INFO",
+  "raspberry_pi_compatibility": true
+}
+
