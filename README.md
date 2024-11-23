@@ -88,6 +88,13 @@ Bitoshi-Blockamoto-Game-Engine/
 │   └── resource_optimizer.py       # Optimizes resource usage for Raspberry Pi
 
 ```
+
+## Touchscreen User Interface
+
+![Touchscreen UI](assets/ui_screenshots/touchscreen_ui.png)
+
+The above image illustrates the interactive user interface designed for the Raspberry Pi touchscreen, showcasing the HTML, CSS, and JavaScript components.
+
 ## Vision: Block-Oriented Approach
 
 The Block-Oriented Approach transforms blockchain applications by using UTXOs as foundational building blocks. This strategy not only aligns with Bitcoin's principles of decentralization, efficiency, and security but also unlocks a new realm of programmability, enabling dynamic and diverse applications.
