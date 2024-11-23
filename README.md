@@ -29,10 +29,19 @@ Bitoshi-Blockamoto-Game-Engine/
 │   └── peer_state.db               # Tracks peer status and messages
 ├── docs/
 │   └── README.md                   # Additional documentation
+├── interfaces/
+│   ├── game_component.py           # Standardized interface for game components
+│   ├── kernel_interface.py         # Interface for kernel operations
+│   ├── marketplace_interface.py    # Interface for marketplace logic
+│   └── network_interface.py        # Interface for networking functionality
 ├── kernel/
 │   ├── kernel_config.json          # Configurations for kernel operations on Raspberry Pi
 │   ├── peer_nodes.json             # Stores connected nodes' information
 │   └── start_kernel.sh             # Initialization script for the peer-to-peer kernel
+├── raspi/
+│   ├── monitor.py                  # Monitors system health on Raspberry Pi
+│   ├── resource_manager.py         # Manages limited Raspberry Pi resources
+│   └── watchdog.sh                 # Monitors peer activity and restarts processes if necessary
 ├── scripts/
 │   ├── deploy.sh                   # Deployment script for Raspberry Pi
 │   ├── setup_database.py           # Script to initialize databases
@@ -59,22 +68,20 @@ Bitoshi-Blockamoto-Game-Engine/
 │   │   └── p2p_messaging.py        # Handles peer-to-peer communication
 │   └── peer_network.py             # Manages overall peer networking and connections
 ├── tests/
+│   ├── test_coin_system.py
+│   ├── test_db_synchronization.py
 │   ├── test_game_logic.py
-│   ├── test_peer_network.py
-│   ├── test_utxo_manager.py
 │   ├── test_marketplace_manager.py
+│   ├── test_peer_discovery.py
+│   ├── test_peer_network.py
+│   ├── test_resource_optimizer.py
 │   ├── test_transaction_handler.py
-│   └── test_peer_discovery.py      # Tests for peer discovery and connectivity
+│   └── test_utxo_manager.py
 ├── utilities/
 │   ├── config_loader.py            # Loads and validates configuration files
 │   ├── data_serializer.py          # Serialization and deserialization utilities
 │   ├── logger.py                   # Logging utility for debugging and monitoring
 │   └── resource_optimizer.py       # Optimizes resource usage for Raspberry Pi
-└── raspi/
-    ├── monitor.py                  # Monitors system health on Raspberry Pi
-    ├── resource_manager.py         # Manages limited Raspberry Pi resources
-    └── watchdog.sh                 # Monitors peer activity and restarts processes if necessary
-
 
 ```
 ## Vision: Block-Oriented Approach
