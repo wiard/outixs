@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitoshi Blockamoto Game Engine</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div id="top-bar">
+        <div id="balance">Coin Energy: 1000</div>
+        <div id="player-stats">Health: 80% | Parcels: 5 | Rank: 10</div>
+        <div id="network-status" class="connected">Connected</div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Center Grid -->
+        <div id="center-grid">
+            <div class="tile active"></div>
+            <div class="tile available"></div>
+            <div class="tile marketplace"></div>
+            <div class="tile locked"></div>
+        </div>
+
+        <!-- Side Panel -->
+        <div id="side-panel">
+            <button class="tool-btn trade">Trade</button>
+            <button class="tool-btn upgrade">Upgrade</button>
+            <button class="tool-btn build">Build</button>
+            <button class="tool-btn network">Network</button>
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div id="bottom-bar">
+        <div id="quick-stats">Coins: 500 | Parcel Level: 3</div>
+        <button id="leaderboard-btn">Leaderboard</button>
+        <button id="settings-btn">Settings</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
