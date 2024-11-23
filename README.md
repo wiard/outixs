@@ -22,56 +22,58 @@ This creates a dynamic ecosystem powered by Bitcoin's UTXO model.
 ```plaintext
 
 Bitoshi-Blockamoto-Game-Engine/
-├── README.md
+├── README.md                        # Project overview and documentation
 ├── database/
-│   ├── utxo.db                      # Local database for UTXO storage
-│   └── marketplace.db               # Database for marketplace items and transactions
+│   ├── utxo.db                     # UTXO database for offline storage
+│   ├── marketplace.db              # Marketplace items and transactions database
+│   └── peer_state.db               # Tracks peer status and messages
 ├── docs/
-│   └── README.md                    # Project documentation
+│   └── README.md                   # Additional documentation
 ├── kernel/
-│   ├── kernel_config.json           # Configuration for kernel operations
-│   ├── peer_nodes.json              # Connected peer nodes information
-│   └── start_kernel.sh              # Script to initialize the kernel
-├── interfaces/                      # Contains all interface definitions
-│   ├── game_component.py            # Abstract base class for game components
-│   ├── marketplace_interface.py     # Abstract base class for marketplace-related modules
-│   ├── network_interface.py         # Abstract base class for networking modules
-│   └── kernel_interface.py          # Abstract base class for kernel operations
+│   ├── kernel_config.json          # Configurations for kernel operations on Raspberry Pi
+│   ├── peer_nodes.json             # Stores connected nodes' information
+│   └── start_kernel.sh             # Initialization script for the peer-to-peer kernel
 ├── scripts/
-│   ├── deploy.sh                    # Deployment script
-│   ├── setup_database.py            # Database setup script
-│   └── setup_env.sh                 # Environment setup script
+│   ├── deploy.sh                   # Deployment script for Raspberry Pi
+│   ├── setup_database.py           # Script to initialize databases
+│   ├── setup_env.sh                # Environment setup script for Raspberry Pi
+│   └── manage_peers.py             # Script for manual peer management
 ├── src/
 │   ├── assets/
-│   │   ├── asset_manager.py         # Manages game assets
-│   │   └── marketplace_items.py     # Handles marketplace item logic
+│   │   ├── asset_manager.py        # Manages in-game assets
+│   │   └── marketplace_items.py    # Handles marketplace-specific items
 │   ├── core/
-│   │   ├── blockchain_sync.py       # Syncs UTXOs from the blockchain
-│   │   └── utxo_manager.py          # Handles UTXO operations
-│   ├── game_logic.py                # Contains game rules and mechanics
+│   │   ├── blockchain_sync.py      # Synchronizes blockchain data
+│   │   └── utxo_manager.py         # UTXO management for peer-to-peer communication
 │   ├── gameplay/
-│   │   ├── engine.py                # Core gameplay engine
-│   │   └── level_loader.py          # Loads game levels
-│   ├── kernel_controller.py         # Interfaces with kernel operations
+│   │   ├── engine.py               # Core game engine
+│   │   └── level_loader.py         # Game level management
+│   ├── kernel_controller.py        # Manages kernel operations and Raspberry Pi interactions
 │   ├── marketplace/
-│   │   ├── coin_system.py           # Implements a custom coin system
-│   │   ├── marketplace_manager.py   # Core marketplace logic
-│   │   └── transaction_handler.py   # Processes trades and transactions
+│   │   ├── marketplace_manager.py  # Core marketplace logic
+│   │   ├── transaction_handler.py  # Processes trades and peer-to-peer transactions
+│   │   └── coin_system.py          # Custom coin system for marketplace
 │   ├── networking/
-│   │   ├── peer_sync.py             # Handles peer-to-peer synchronization
-│   │   └── marketplace_sync.py      # Synchronizes marketplace data across peers
-│   └── peer_network.py              # Manages overall peer networking
+│   │   ├── peer_sync.py            # Synchronizes UTXOs between peers
+│   │   ├── peer_discovery.py       # Discovers and connects to peers
+│   │   └── p2p_messaging.py        # Handles peer-to-peer communication
+│   └── peer_network.py             # Manages overall peer networking and connections
 ├── tests/
 │   ├── test_game_logic.py
 │   ├── test_peer_network.py
 │   ├── test_utxo_manager.py
-│   ├── test_marketplace_manager.py  # Unit tests for marketplace logic
-│   ├── test_transaction_handler.py  # Unit tests for transaction handling
-│   └── test_coin_system.py          # Unit tests for custom coin system
-└── utilities/
-    ├── config_loader.py             # Loads and validates configuration files
-    ├── data_serializer.py           # Serialization utilities
-    └── logger.py                    # Centralized logging utility
+│   ├── test_marketplace_manager.py
+│   ├── test_transaction_handler.py
+│   └── test_peer_discovery.py      # Tests for peer discovery and connectivity
+├── utilities/
+│   ├── config_loader.py            # Loads and validates configuration files
+│   ├── data_serializer.py          # Serialization and deserialization utilities
+│   ├── logger.py                   # Logging utility for debugging and monitoring
+│   └── resource_optimizer.py       # Optimizes resource usage for Raspberry Pi
+└── raspi/
+    ├── monitor.py                  # Monitors system health on Raspberry Pi
+    ├── resource_manager.py         # Manages limited Raspberry Pi resources
+    └── watchdog.sh                 # Monitors peer activity and restarts processes if necessary
 
 
 ```
