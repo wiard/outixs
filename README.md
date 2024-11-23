@@ -77,6 +77,10 @@ Bitoshi-Blockamoto-Game-Engine/
 │   ├── test_resource_optimizer.py
 │   ├── test_transaction_handler.py
 │   └── test_utxo_manager.py
+├── ui/
+│   ├── index.html                  # Main HTML file for the touchscreen interface
+│   ├── styles.css                  # Styling for the user interface
+│   └── script.js                   # JavaScript for interactivity and animations
 ├── utilities/
 │   ├── config_loader.py            # Loads and validates configuration files
 │   ├── data_serializer.py          # Serialization and deserialization utilities
