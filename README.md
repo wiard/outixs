@@ -96,6 +96,7 @@ The touchscreen interface for the Bitoshi Blockamoto Game Engine is designed for
 ![Touchscreen User Interface](src/assets/ui_screenshots/touchscreen_ui.png)
 
 
+
 The above image illustrates the interactive user interface designed for the Raspberry Pi touchscreen, showcasing the HTML, CSS, and JavaScript components.
 
 ## Vision: Block-Oriented Approach
