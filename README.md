@@ -141,6 +141,7 @@ Use the following command to start the system:
 ```bash
 bash bin/start_kernel.sh
 
+
 ```
 ## Project Structure
 
