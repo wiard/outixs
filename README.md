@@ -30,6 +30,118 @@ The Bitoshi Blockamoto Game Engine isn’t just about games—it’s about reima
 - **Object-Oriented Architecture**: Encapsulates players, assets, and game components as objects derived from UTXOs.
 - **Scalable and Modular**: Peer-to-peer synchronization supports multiplayer gameplay and scalable development.
 
+## Directory Structure
+
+This section describes the purpose of each directory in the project to help developers navigate and understand the system.
+
+### `applications/`
+Contains application-level logic such as gameplay mechanics, asset management, and marketplace-specific operations.
+
+**Example Files:**
+- `gameplay/engine.py` - Core game engine logic.
+- `marketplace_items.py` - Manages marketplace-specific assets.
+
+### `bin/`
+Contains executable scripts for deploying and initializing the system.
+
+**Example Files:**
+- `start_kernel.sh` - Starts the kernel.
+- `deploy.sh` - Deployment script for production.
+
+### `config/`
+Stores configuration files for the kernel and other system components.
+
+**Example Files:**
+- `kernel_config.json` - Kernel configurations.
+- `peer_nodes.json` - Information about connected nodes.
+
+### `data/`
+Houses database files and other runtime data used by the system.
+
+**Example Files:**
+- `utxo.db` - UTXO data for offline use.
+- `marketplace.db` - Marketplace transaction data.
+
+### `docs/`
+Documentation for the project, including additional guides and resources.
+
+**Example Files:**
+- `README.md` - Additional documentation.
+
+### `interfaces/`
+Defines standard interfaces for various components, ensuring modularity and extensibility.
+
+**Example Files:**
+- `logic_gate_interface.py` - Interface for custom logic gates.
+- `state_machine_interface.py` - Interface for finite state machines.
+
+### `kernel/`
+Core of the system that manages essential processes, including blockchain synchronization, UTXO management, and plugins.
+
+**Subdirectories:**
+- `core/` - Core kernel functionality.
+- `modules/` - Custom logic gates and state machines.
+- `plugins/` - Plugin management system and examples.
+
+### `lib/`
+Shared libraries and utilities used across the project.
+
+**Example Files:**
+- `config_loader.py` - Loads configuration files.
+- `logger.py` - Logging utility.
+
+### `plugins/`
+Placeholder for additional plugins. *(May be deprecated if consolidated under `kernel/plugins/`.)*
+
+### `raspi/`
+Raspberry Pi-specific scripts for resource management and monitoring.
+
+**Example Files:**
+- `monitor.py` - Monitors system health.
+- `watchdog.sh` - Restarts failed processes.
+
+### `scripts/`
+Utility scripts for managing databases, peers, and environments.
+
+**Example Files:**
+- `setup_database.py` - Initializes databases.
+- `manage_peers.py` - Manages peer connections.
+
+### `services/`
+Networking and marketplace services.
+
+**Subdirectories:**
+- `marketplace/` - Handles marketplace logic and transactions.
+- `networking/` - Manages peer discovery, synchronization, and messaging.
+
+### `tests/`
+Contains unit and integration tests for all major components.
+
+**Example Files:**
+- `test_logic_gate_interface.py` - Tests custom logic gates.
+- `test_marketplace_manager.py` - Tests marketplace functionality.
+
+### `ui/`
+User-facing interface assets and logic, including HTML, CSS, and JavaScript for web-based interaction.
+
+**Example Files:**
+- `html/index.html` - Main interface page.
+- `css/styles.css` - Styling for the UI.
+
+---
+
+## How to Use
+
+### Setup Environment:
+1. Install dependencies.
+2. Configure the `config/kernel_config.json` file.
+
+### Run the Kernel:
+Use the following command to start the system:
+```bash
+bash bin/start_kernel.sh
+
+```
 ## Project Structure
 
 ```plaintext
