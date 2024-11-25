@@ -36,4 +36,3 @@ class GameLogic:
 
     def get_state(self):
         return self.game_state
-

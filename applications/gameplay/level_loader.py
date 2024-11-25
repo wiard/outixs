@@ -1,5 +1,6 @@
 import json
 
+
 class LevelLoader:
     def __init__(self, level_file):
         self.level_file = level_file
@@ -8,7 +9,7 @@ class LevelLoader:
     def load_level(self):
         print(f"Loading level from {self.level_file}...")
         try:
-            with open(self.level_file, 'r') as file:
+            with open(self.level_file, "r") as file:
                 self.level_data = json.load(file)
                 print("Level loaded successfully.")
         except FileNotFoundError:
@@ -17,4 +18,3 @@ class LevelLoader:
             print("Error: Failed to parse level file.")
 
         return self.level_data
-

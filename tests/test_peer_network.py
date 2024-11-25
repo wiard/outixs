@@ -1,6 +1,7 @@
 import unittest
 from src.peer_network import PeerNetwork
 
+
 class TestPeerNetwork(unittest.TestCase):
     def setUp(self):
         self.peer_network = PeerNetwork()
@@ -22,6 +23,6 @@ class TestPeerNetwork(unittest.TestCase):
         response = self.peer_network.broadcast_message("Hello, World!")
         self.assertTrue(response)
 
+
 if __name__ == "__main__":
     unittest.main()
-

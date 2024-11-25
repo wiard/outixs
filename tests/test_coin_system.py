@@ -1,6 +1,7 @@
 import unittest
 from src.marketplace.coin_system import CoinSystem
 
+
 class TestCoinSystem(unittest.TestCase):
     def setUp(self):
         self.coin_system = CoinSystem()
@@ -19,4 +20,3 @@ class TestCoinSystem(unittest.TestCase):
         self.coin_system.mint("user1", 100)
         self.coin_system.burn("user1", 50)
         self.assertEqual(self.coin_system.get_balance("user1"), 50)
-

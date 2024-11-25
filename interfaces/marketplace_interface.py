@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class MarketplaceInterface(ABC):
     @abstractmethod
     def initialize(self):
@@ -15,4 +16,3 @@ class MarketplaceInterface(ABC):
     def sync_with_peers(self):
         """Synchronize marketplace data with peers."""
         pass
-

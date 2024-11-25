@@ -30,4 +30,3 @@ class MarketplaceItem:
             data["price"],
             data["owner"],
         )
-

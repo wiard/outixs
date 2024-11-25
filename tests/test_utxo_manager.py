@@ -1,6 +1,7 @@
 import unittest
 from src.core.utxo_manager import UTXOManager
 
+
 class TestUTXOManager(unittest.TestCase):
     def setUp(self):
         self.utxo_manager = UTXOManager()
@@ -22,6 +23,6 @@ class TestUTXOManager(unittest.TestCase):
         result = self.utxo_manager.find_utxo_by_address("1BitcoinAddress")
         self.assertEqual(result, [utxo])
 
+
 if __name__ == "__main__":
     unittest.main()
-

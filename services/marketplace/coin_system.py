@@ -24,4 +24,3 @@ class CoinSystem:
 
     def get_balance(self, user):
         return self.balances.get(user, 0)
-

@@ -1,5 +1,6 @@
 from networking.peer_sync import PeerSync
 
+
 class PeerNetwork:
     def __init__(self, node_id, peer_list):
         self.node_id = node_id
@@ -30,4 +31,3 @@ class PeerNetwork:
     def process_received_data(self, data):
         print(f"Data received at node {self.node_id}: {data}")
         # Custom processing logic can be added here
-

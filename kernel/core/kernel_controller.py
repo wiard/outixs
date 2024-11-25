@@ -1,9 +1,13 @@
 import json
 import os
 
+
 class KernelController:
-    def __init__(self, config_path="kernel/kernel_config.json", 
-nodes_path="kernel/peer_nodes.json"):
+    def __init__(
+        self,
+        config_path="kernel/kernel_config.json",
+        nodes_path="kernel/peer_nodes.json",
+    ):
         self.config_path = config_path
         self.nodes_path = nodes_path
         self.config = self._load_json(self.config_path)
@@ -11,7 +15,7 @@ nodes_path="kernel/peer_nodes.json"):
 
     def _load_json(self, path):
         try:
-            with open(path, 'r') as f:
+            with open(path, "r") as f:
                 data = json.load(f)
             print(f"Loaded data from {path}.")
             return data
@@ -24,7 +28,7 @@ nodes_path="kernel/peer_nodes.json"):
 
     def _save_json(self, data, path):
         try:
-            with open(path, 'w') as f:
+            with open(path, "w") as f:
                 json.dump(data, f, indent=4)
             print(f"Data saved to {path}.")
         except Exception as e:
@@ -49,4 +53,3 @@ nodes_path="kernel/peer_nodes.json"):
 
     def get_status(self):
         return {"config": self.config, "peer_nodes": self.peer_nodes}
-

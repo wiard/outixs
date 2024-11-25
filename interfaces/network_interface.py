@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class NetworkInterface(ABC):
     @abstractmethod
     def connect(self):
@@ -15,4 +16,3 @@ class NetworkInterface(ABC):
     def receive_data(self):
         """Receive data from peers."""
         pass
-

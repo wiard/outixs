@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class KernelInterface(ABC):
     @abstractmethod
     def start_kernel(self):
@@ -15,4 +16,3 @@ class KernelInterface(ABC):
     def configure_kernel(self, config):
         """Configure kernel settings."""
         pass
-

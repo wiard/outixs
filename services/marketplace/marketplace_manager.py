@@ -24,4 +24,3 @@ class MarketplaceManager:
         item_1_owner, item_2_owner = item_1.owner, item_2.owner
         item_1.change_owner(item_2_owner)
         item_2.change_owner(item_1_owner)
-

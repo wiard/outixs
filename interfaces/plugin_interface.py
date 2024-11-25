@@ -6,4 +6,3 @@ class PluginInterface:
     def execute(self, *args, **kwargs):
         """Execute plugin-specific logic."""
         pass
-

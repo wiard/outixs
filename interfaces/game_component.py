@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class GameComponent(ABC):
     @abstractmethod
     def update(self):
@@ -10,4 +11,3 @@ class GameComponent(ABC):
     def render(self):
         """Render the component."""
         pass
-
