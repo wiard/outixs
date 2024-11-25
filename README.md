@@ -36,79 +36,70 @@ The Bitoshi Blockamoto Game Engine isn’t just about games—it’s about reima
 
 Bitoshi-Blockamoto-Game-Engine/
 ├── README.md                        # Project overview and documentation
-├── database/
-│   ├── utxo.db                     # UTXO database for offline storage
-│   ├── marketplace.db              # Marketplace items and transactions database
-│   └── peer_state.db               # Tracks peer status and messages
-├── docs/
-│   └── README.md                   # Additional documentation
-├── interfaces/
-│   ├── game_component.py           # Standardized interface for game components
-│   ├── kernel_interface.py         # Interface for kernel operations
-│   ├── logic_gate_interface.py     # Interface for custom logic gates
-│   ├── marketplace_interface.py    # Interface for marketplace logic
-│   ├── network_interface.py        # Interface for networking functionality
-│   └── state_machine_interface.py  # Interface for finite state machines
-├── kernel/
-│   ├── kernel_config.json          # Configurations for kernel operations
-│   ├── peer_nodes.json             # Connected nodes' information
-│   └── start_kernel.sh             # Initialization script for peer-to-peer kernel
-├── plugins/
-│   ├── examples/
-│   │   ├── custom_and_gate.py      # Example logic gate plugin
-│   │   ├── marketplace_fsm.py      # Example finite state machine plugin
-│   └── loader.py                   # Plugin loader to dynamically register plugins
-├── raspi/
-│   ├── monitor.py                  # Monitors system health on Raspberry Pi
-│   ├── resource_manager.py         # Manages limited Raspberry Pi resources
-│   └── watchdog.sh                 # Restarts processes on peer activity failures
-├── scripts/
-│   ├── deploy.sh                   # Deployment script for Raspberry Pi
-│   ├── setup_database.py           # Script to initialize databases
-│   ├── setup_env.sh                # Environment setup script
-│   └── manage_peers.py             # Script for peer management
-├── src/
-│   ├── assets/
-│   │   ├── asset_manager.py        # Manages in-game assets
-│   │   └── marketplace_items.py    # Handles marketplace-specific items
-│   ├── core/
-│   │   ├── blockchain_sync.py      # Synchronizes blockchain data
-│   │   └── utxo_manager.py         # Manages UTXO operations
-│   ├── gameplay/
-│   │   ├── engine.py               # Core game engine logic
-│   │   └── level_loader.py         # Game level management
-│   ├── kernel_controller.py        # Manages kernel operations and interactions
+├── bin/                             # Executables or scripts
+│   ├── start_kernel.sh              # Kernel startup script
+│   ├── deploy.sh                    # Deployment script for Raspberry Pi
+│   └── setup_env.sh                 # Environment setup script
+├── config/                          # Configuration files
+│   ├── kernel_config.json           # Kernel-specific configurations
+│   └── peer_nodes.json              # Peer node connection data
+├── data/                            # Databases or runtime data
+│   ├── utxo.db                      # UTXO database for offline storage
+│   ├── marketplace.db               # Marketplace items and transactions database
+│   └── peer_state.db                # Tracks peer status and messages
+├── docs/                            # Documentation for the project
+│   └── README.md
+├── kernel/                          # Kernel-level functionality
+│   ├── core/                        # Core kernel functionality
+│   │   ├── blockchain_sync.py       # Synchronizes blockchain data
+│   │   ├── kernel_controller.py     # Manages kernel operations
+│   │   └── utxo_manager.py          # Manages UTXO operations
+│   ├── modules/                     # Kernel modules (logic gates, FSMs)
+│   │   ├── logic_gate_interface.py  # Interface for custom logic gates
+│   │   ├── state_machine_interface.py  # Interface for FSMs
+│   │   └── marketplace_fsm.py       # FSM example plugin
+│   └── plugins/                     # Kernel plugin system
+│       ├── loader.py                # Plugin loader
+│       └── examples/                # Example plugins
+│           ├── custom_and_gate.py   # Example logic gate
+│           ├── example_plugin.py    # Another example plugin
+├── lib/                             # Shared libraries and utilities
+│   ├── config_loader.py             # Loads and validates configuration files
+│   ├── data_serializer.py           # Serialization and deserialization utilities
+│   ├── logger.py                    # Logging utility
+│   ├── plugin_validator.py          # Validates plugins
+│   └── resource_optimizer.py        # Optimizes resource usage
+├── services/                        # Services interacting with kernel
 │   ├── marketplace/
-│   │   ├── marketplace_manager.py  # Core marketplace logic
-│   │   ├── transaction_handler.py  # Processes trades and peer-to-peer transactions
-│   │   └── coin_system.py          # Custom coin system for in-game economies
+│   │   ├── coin_system.py           # Custom coin system for economies
+│   │   ├── marketplace_manager.py   # Core marketplace logic
+│   │   └── transaction_handler.py   # Processes trades
 │   ├── networking/
-│   │   ├── peer_sync.py            # Synchronizes UTXOs between peers
-│   │   ├── peer_discovery.py       # Discovers and connects to peers
-│   │   └── p2p_messaging.py        # Peer-to-peer communication
-│   └── peer_network.py             # Manages networking and connections
-├── tests/
-│   ├── test_coin_system.py
-│   ├── test_db_synchronization.py
-│   ├── test_game_logic.py
-│   ├── test_logic_gate_interface.py # Tests for custom logic gates
-│   ├── test_marketplace_manager.py
-│   ├── test_peer_discovery.py
-│   ├── test_peer_network.py
-│   ├── test_resource_optimizer.py
-│   ├── test_state_machine_interface.py # Tests for finite state machines
-│   ├── test_transaction_handler.py
-│   └── test_utxo_manager.py
-├── ui/
-│   ├── index.html                  # Main HTML file for touchscreen interface
-│   ├── styles.css                  # Styling for the UI
-│   └── script.js                   # JavaScript for interactivity
-├── utilities/
-│   ├── config_loader.py            # Loads and validates configuration files
-│   ├── data_serializer.py          # Serialization and deserialization utilities
-│   ├── logger.py                   # Logging utility
-│   ├── plugin_validator.py         # Validates and registers plugins
-│   └── resource_optimizer.py       # Optimizes resource usage
+│   │   ├── p2p_messaging.py         # Handles peer-to-peer communication
+│   │   ├── peer_discovery.py        # Discovers and connects to peers
+│   │   └── peer_sync.py             # Synchronizes UTXOs between peers
+│   └── peer_network.py              # Manages overall peer networking
+├── tests/                           # Test files for the project
+│   ├── test_logic_gate_interface.py
+│   ├── test_state_machine_interface.py
+│   └── ... (other tests)
+├── ui/                              # User-facing interfaces
+│   ├── html/
+│   │   ├── index.html               # Main HTML file for the interface
+│   │   └── styles.css               # Styling for the UI
+│   ├── js/
+│   │   └── script.js                # UI interactivity logic
+│   ├── assets/
+│   │   └── ui_screenshots/          # UI screenshots or assets
+│   │       └── touchscreen_ui.png
+└── applications/                    # High-level application logic
+    ├── gameplay/
+    │   ├── engine.py                # Core game engine logic
+    │   └── level_loader.py          # Game level management
+    ├── asset_manager.py             # Manages in-game assets
+    ├── game_logic.py                # Main game logic
+    └── marketplace_items.py         # Handles marketplace-specific items
+
 
 ```
 
