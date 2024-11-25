@@ -45,16 +45,18 @@ Bitoshi-Blockamoto-Game-Engine/
 ├── interfaces/
 │   ├── game_component.py           # Standardized interface for game components
 │   ├── kernel_interface.py         # Interface for kernel operations
+│   ├── logic_gate_interface.py     # Interface for custom logic gates
 │   ├── marketplace_interface.py    # Interface for marketplace logic
 │   ├── network_interface.py        # Interface for networking functionality
-│   └── plugin_interface.py         # Interface for plugins
+│   └── state_machine_interface.py  # Interface for finite state machines
 ├── kernel/
 │   ├── kernel_config.json          # Configurations for kernel operations
 │   ├── peer_nodes.json             # Connected nodes' information
 │   └── start_kernel.sh             # Initialization script for peer-to-peer kernel
 ├── plugins/
 │   ├── examples/
-│   │   ├── example_plugin.py       # Example plugin implementing the plugin interface
+│   │   ├── custom_and_gate.py      # Example logic gate plugin
+│   │   ├── marketplace_fsm.py      # Example finite state machine plugin
 │   └── loader.py                   # Plugin loader to dynamically register plugins
 ├── raspi/
 │   ├── monitor.py                  # Monitors system health on Raspberry Pi
@@ -89,10 +91,12 @@ Bitoshi-Blockamoto-Game-Engine/
 │   ├── test_coin_system.py
 │   ├── test_db_synchronization.py
 │   ├── test_game_logic.py
+│   ├── test_logic_gate_interface.py # Tests for custom logic gates
 │   ├── test_marketplace_manager.py
 │   ├── test_peer_discovery.py
 │   ├── test_peer_network.py
 │   ├── test_resource_optimizer.py
+│   ├── test_state_machine_interface.py # Tests for finite state machines
 │   ├── test_transaction_handler.py
 │   └── test_utxo_manager.py
 ├── ui/
@@ -105,7 +109,6 @@ Bitoshi-Blockamoto-Game-Engine/
 │   ├── logger.py                   # Logging utility
 │   ├── plugin_validator.py         # Validates and registers plugins
 │   └── resource_optimizer.py       # Optimizes resource usage
-
 
 ```
 
