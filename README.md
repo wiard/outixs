@@ -220,7 +220,7 @@ Bitoshi-Blockamoto-Game-Engine/
 
 The touchscreen interface for the Bitoshi Blockamoto Game Engine is designed specifically for a 7-inch Raspberry Pi display, providing an immersive and interactive experience. This interface features various interactive layers, sidebars, and sound-based feedback.
 
-![Touchscreen User Interface](ui/assets/ui_screenshots/touchscreen_ui.png)
+![Touchscreen User Interface](ui/assets/touchscreen_ui.png)
 
 
 The above image illustrates the interactive UI designed for the Raspberry Pi touchscreen. It showcases the components built using HTML, CSS, and JavaScript.
