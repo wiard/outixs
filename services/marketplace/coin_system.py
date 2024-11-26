@@ -1,26 +1,26 @@
 class CoinSystem:
     def __init__(self):
-        self.balances = {}
+        self.users = {}
 
-    def mint(self, user, amount):
-        if user not in self.balances:
-            self.balances[user] = 0
-        self.balances[user] += amount
+    def add_user(self, username, initial_balance):
+        self.users[username] = initial_balance
+        return "User added successfully"
 
-    def burn(self, user, amount):
-        if user in self.balances and self.balances[user] >= amount:
-            self.balances[user] -= amount
-        else:
-            raise ValueError("Insufficient balance to burn")
+    def get_balance(self, username):
+        return self.users.get(username, 0)
 
-    def transfer(self, sender, receiver, amount):
-        if sender in self.balances and self.balances[sender] >= amount:
-            self.balances[sender] -= amount
-            if receiver not in self.balances:
-                self.balances[receiver] = 0
-            self.balances[receiver] += amount
-        else:
-            raise ValueError("Insufficient balance to transfer")
+    def transfer_coins(self, sender, receiver, amount):
+        if self.get_balance(sender) < amount:
+            return "Insufficient funds"
+        if receiver not in self.users:
+            return "Receiver not found"
+        
+        self.users[sender] -= amount
+        self.users[receiver] = self.users.get(receiver, 0) + amount
+        return f"Transferred {amount} coins from {sender} to {receiver}"
 
-    def get_balance(self, user):
-        return self.balances.get(user, 0)
+    def user_exists(self, username):
+        if username not in self.users:
+            return "User not found"
+        return True
+

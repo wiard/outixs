@@ -1,20 +1,24 @@
 class TransactionHandler:
-    def __init__(self, coin_system, marketplace_manager):
-        self.coin_system = coin_system
+    def __init__(self, marketplace_manager):
         self.marketplace_manager = marketplace_manager
 
-    def execute_purchase(self, buyer, item_id):
-        item = self.marketplace_manager.get_item(item_id)
+    def process_transaction(self, item_name, quantity):
+        item = self.marketplace_manager.get_item(item_name)
         if not item:
-            raise ValueError("Item not found")
-        if self.coin_system.get_balance(buyer) < item.price:
-            raise ValueError("Insufficient funds")
-        self.coin_system.transfer(buyer, item.owner, item.price)
-        item.change_owner(buyer)
-        return f"Purchase successful! {buyer} now owns {item.name}"
+            return "Item not found"
+        if quantity > self.marketplace_manager.get_balance(item_name):  # Check for sufficient funds
+            return "Insufficient funds"
+        return f"Purchase successful! {quantity} {item_name}(s) purchased"
 
-    def execute_swap(self, item_id_1, item_id_2):
-        self.marketplace_manager.swap_items(item_id_1, item_id_2)
-        return f"Swap successful! Items {item_id_1} and {item_id_2} 
-exchanged ownership"
+    def refund_transaction(self, item_name, quantity):
+        item = self.marketplace_manager.get_item(item_name)
+        if not item:
+            return "Item not found"
+        return f"Refund successful! {quantity} {item_name}(s) refunded"
+
+    def transaction_status(self, item_name, quantity):
+        item = self.marketplace_manager.get_item(item_name)
+        if not item:
+            return "Item not found"
+        return f"Transaction status: {quantity} {item_name}(s) processed"
 

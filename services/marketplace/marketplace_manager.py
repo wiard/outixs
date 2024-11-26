@@ -1,26 +1,28 @@
 class MarketplaceManager:
     def __init__(self):
         self.items = {}
+        self.balances = {}  # Store the quantity of each item
 
-    def list_item(self, item):
-        if item.item_id in self.items:
-            raise ValueError("Item already listed")
-        self.items[item.item_id] = item
+    def add_item(self, item_name, item_price, initial_quantity=100):
+        self.items[item_name] = item_price
+        self.balances[item_name] = initial_quantity
+        return "Item added successfully"
 
-    def remove_item(self, item_id):
-        if item_id in self.items:
-            del self.items[item_id]
-        else:
-            raise ValueError("Item not found")
+    def get_item(self, item_name):
+        return self.items.get(item_name, None)
 
-    def get_item(self, item_id):
-        return self.items.get(item_id)
+    def get_balance(self, item_name):
+        return self.balances.get(item_name, 0)
 
-    def swap_items(self, item_id_1, item_id_2):
-        if item_id_1 not in self.items or item_id_2 not in self.items:
-            raise ValueError("One or both items not found")
-        item_1 = self.items[item_id_1]
-        item_2 = self.items[item_id_2]
-        item_1_owner, item_2_owner = item_1.owner, item_2.owner
-        item_1.change_owner(item_2_owner)
-        item_2.change_owner(item_1_owner)
+    def update_item(self, item_name, new_price):
+        if item_name in self.items:
+            self.items[item_name] = new_price
+            return "Item updated successfully"
+        return "Item not found"
+
+    def remove_item(self, item_name):
+        if item_name in self.items:
+            del self.items[item_name]
+            return "Item removed successfully"
+        return "Item not found"
+
