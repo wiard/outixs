@@ -5,33 +5,33 @@ class TestStateMachineInterface(unittest.TestCase):
 
     def setUp(self):
         self.state_machine = StateMachineInterface()
-
-    def test_create_machine(self):
-        result = self.state_machine.create_machine("TestMachine")
-        self.assertEqual(result, "State machine created successfully")
+        self.state_machine.add_state("State1")
+        self.state_machine.add_state("State2")
+        self.state_machine.add_transition("State1", "State2", "Event")
 
     def test_add_state(self):
-        self.state_machine.create_machine("TestMachine")
-        result = self.state_machine.add_state("TestMachine", "State1")
+        result = self.state_machine.add_state("State3")
         self.assertEqual(result, "State added successfully")
 
     def test_add_transition(self):
-        self.state_machine.create_machine("TestMachine")
-        self.state_machine.add_state("TestMachine", "State1")
-        self.state_machine.add_state("TestMachine", "State2")
-        result = self.state_machine.add_transition("TestMachine", "State1", "State2", "Event")
+        result = self.state_machine.add_transition("State1", "State2", "Event")
         self.assertEqual(result, "Transition added successfully")
 
-    def test_get_machine(self):
-        self.state_machine.create_machine("TestMachine")
-        self.state_machine.add_state("TestMachine", "State1")
-        result = self.state_machine.get_gate("TestMachine")
-        self.assertIn("State1", result["states"])
+    def test_add_invalid_transition(self):
+        result = self.state_machine.add_transition("State1", "NonExistentState", "Event")
+        self.assertEqual(result, "State NonExistentState does not exist.")
 
-    def test_state_machine_not_found(self):
-        with self.assertRaises(ValueError) as context:
-            self.state_machine.get_gate("NonExistentMachine")
-        self.assertEqual(str(context.exception), "Gate with ID NonExistentMachine not found.")
+    def test_get_state(self):
+        state = self.state_machine.get_state("State1")
+        self.assertEqual(state, "State1")
+
+    def test_get_invalid_state(self):
+        state = self.state_machine.get_state("NonExistentState")
+        self.assertEqual(state, None)
+
+    def test_process_event(self):
+        result = self.state_machine.process_event("State1", "Event")
+        self.assertEqual(result, "Transition successful: State1 -> State2")
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,33 +1,37 @@
 class StateMachineInterface:
     def __init__(self):
-        self.machines = {}
+        self.states = {}
+        self.transitions = {}
 
-    def create_machine(self, machine_name):
-        if machine_name in self.machines:
-            raise ValueError(f"Machine {machine_name} already exists.")
-        self.machines[machine_name] = {"states": [], "transitions": []}
-        return "State machine created successfully"
+    def add_state(self, state_name):
+        if state_name not in self.states:
+            self.states[state_name] = state_name
+            return "State added successfully"
+        return "State already exists"
 
-    def add_state(self, machine_name, state_name):
-        if machine_name not in self.machines:
-            raise ValueError(f"Machine {machine_name} does not exist.")
-        self.machines[machine_name]["states"].append(state_name)
-        return "State added successfully"
-
-    def add_transition(self, machine_name, from_state, to_state, event):
-        if machine_name not in self.machines:
-            raise ValueError(f"Machine {machine_name} does not exist.")
-        if from_state not in self.machines[machine_name]["states"]:
-            raise ValueError(f"State {from_state} does not exist.")
-        if to_state not in self.machines[machine_name]["states"]:
-            raise ValueError(f"State {to_state} does not exist.")
-        self.machines[machine_name]["transitions"].append(
-            {"from": from_state, "to": to_state, "event": event}
-        )
+    def add_transition(self, from_state, to_state, event):
+        if from_state not in self.states or to_state not in self.states:
+            return f"State {to_state} does not exist."
+        if from_state not in self.transitions:
+            self.transitions[from_state] = []
+        self.transitions[from_state].append((event, to_state))
         return "Transition added successfully"
 
-    def get_gate(self, gate_id):
-        if gate_id not in self.machines:
-            raise ValueError(f"Gate with ID {gate_id} not found.")
-        return self.machines[gate_id]
+    def get_state(self, state_name):
+        return self.states.get(state_name, None)
+
+    def process_event(self, current_state, event):
+        if current_state not in self.transitions:
+            return "No transitions available for this state"
+        for transition_event, to_state in self.transitions[current_state]:
+            if transition_event == event:
+                return f"Transition successful: {current_state} -> {to_state}"
+        return "Event not valid for current state"
+
+if __name__ == "__main__":
+    sm = StateMachineInterface()
+    sm.add_state("State1")
+    sm.add_state("State2")
+    sm.add_transition("State1", "State2", "Event1")
+    print(sm.process_event("State1", "Event1"))
 

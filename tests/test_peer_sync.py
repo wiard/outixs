@@ -4,31 +4,28 @@ from services.networking.peer_sync import PeerSync
 class TestPeerSync(unittest.TestCase):
 
     def setUp(self):
-        peer_list = [
-            {'address': '127.0.0.1', 'port': 5000},
-            {'address': '127.0.0.1', 'port': 5001}
-        ]
-        self.peer_sync = PeerSync(peer_list)
+        self.peer_list = ["peer1", "peer2", "peer3"]
+        self.peer_sync = PeerSync(self.peer_list)
 
     def test_connect_to_peer(self):
-        # Add your logic here for testing connect_to_peer
-        pass
+        result = self.peer_sync.connect_to_peer("peer1")
+        self.assertEqual(result, "Connected to peer1")
 
     def test_disconnect_peer(self):
-        # Add your logic here for testing disconnect_peer
-        pass
+        result = self.peer_sync.disconnect_peer("peer1")
+        self.assertEqual(result, "Disconnected from peer1")
 
-    def test_peer_not_found(self):
-        # Add your logic here for testing peer_not_found
-        pass
-
-    def test_sync_peer_data(self):
-        # Add your logic here for testing sync_peer_data
-        pass
+    def test_sync_data(self):
+        result = self.peer_sync.sync_data("peer1", "some_data")
+        self.assertEqual(result, "Data synced with peer1")
 
     def test_sync_timeout(self):
-        # Add your logic here for testing sync_timeout
-        pass
+        result = self.peer_sync.sync_data("peer2", "some_data")
+        self.assertEqual(result, "Data synced with peer2")
+
+    def test_sync_peer_not_found(self):
+        result = self.peer_sync.sync_data("peer4", "some_data")
+        self.assertEqual(result, "Sync timeout with peer4")
 
 if __name__ == "__main__":
     unittest.main()
