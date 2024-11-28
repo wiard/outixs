@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Bitoshi Blockamoto Game Engine: A Block-Oriented Revolution
 
 ## Overview
@@ -298,3 +299,6 @@ With this engine:
 - This block-oriented design **transcends gaming**, paving the way for decentralized finance, governance, and digital ownership.
 
 The Bitoshi Blockamoto Game Engine isn’t just about games—it’s about reimagining the potential of Bitcoin.
+=======
+# outxs
+>>>>>>> origin/main
