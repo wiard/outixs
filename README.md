@@ -1,8 +1,8 @@
-# Block-Oriented Game Engine: A UTXO-Powered Revolution
+# UTXO-Powered Game Engine: A Block-Oriented Revolution
 
 ## Overview
 
-The Block-Oriented Game Engine utilizes Bitcoin's UTXO (Unspent Transaction Output) model to create decentralized economies within and beyond games. At its core, the engine views Bitcoin not just as a currency but as a platform for decentralized applications (dApps), where UTXOs act as the foundational building blocks of programmable economies. This approach enables games and other applications to generate:
+The **UTXO-Powered Game Engine** leverages Bitcoin's UTXO (Unspent Transaction Output) model to create decentralized economies within and beyond games. At its core, the engine views Bitcoin not just as a currency but as a platform for decentralized applications (dApps), where UTXOs act as the foundational building blocks of programmable economies. This approach enables games and other applications to generate:
 
 - A native decentralized marketplace.
 - In-game tokens for transactions, rewards, and governance.
@@ -12,7 +12,7 @@ This decentralized, trustless architecture powered by Bitcoin brings a new layer
 
 ## Vision: Building the Block-Oriented Ecosystem
 
-The vision for the Block-Oriented Game Engine is to expand beyond traditional gaming into a broader ecosystem where Bitcoin’s UTXO model serves as the backbone of decentralized applications. The engine aims to bridge the gap between immutable blockchain structures and dynamic off-chain applications, creating an interactive ecosystem where UTXOs are leveraged for various purposes such as gaming, governance, and finance.
+The vision for the **UTXO-Powered Game Engine** is to expand beyond traditional gaming into a broader ecosystem where Bitcoin’s UTXO model serves as the backbone of decentralized applications. The engine aims to bridge the gap between immutable blockchain structures and dynamic off-chain applications, creating an interactive ecosystem where UTXOs are leveraged for various purposes such as gaming, governance, and finance.
 
 With this engine, we envision:
 - **Blockchain Gaming as a Decentralized Society**: Games become simulations of decentralized economies where the rules are adaptive and transparent, and where players’ actions are recorded on the Bitcoin blockchain.
@@ -81,15 +81,12 @@ With this engine, we envision:
 
 ## Future Vision
 
-The Block-Oriented Game Engine is only the beginning. As the ecosystem evolves, we envision:
+The **UTXO-Powered Game Engine** is only the beginning. As the ecosystem evolves, we envision:
 - **Interoperable Decentralized Economies**: Games, financial systems, and social networks that all interact with Bitcoin’s UTXO model, creating a seamless, global economy.
 - **Decentralized Finance (DeFi)**: The engine paves the way for DeFi applications where assets and tokens can be securely traded and utilized across various applications in the ecosystem.
 - **Scalable Decentralized Applications**: Developers can build decentralized applications (dApps) that utilize the UTXO model for secure, trustless transactions and interactions.
 
-By combining Bitcoin’s security with blockchain programmability and off-chain computation, the Block-Oriented Game Engine creates a new paradigm for decentralized gaming, finance, and digital ownership.
-
-
-
+By combining Bitcoin’s security with blockchain programmability and off-chain computation, the **UTXO-Powered Game Engine** creates a new paradigm for decentralized gaming, finance, and digital ownership.
 
 ## Directory Structure
 
@@ -189,7 +186,7 @@ User-facing interface assets and logic, including HTML, CSS, and JavaScript for 
 - `html/index.html` - Main interface page.
 - `css/styles.css` - Styling for the UI.
 
----
+--- 
 
 ## How to Use
 
@@ -201,6 +198,7 @@ User-facing interface assets and logic, including HTML, CSS, and JavaScript for 
 Use the following command to start the system:
 ```bash
 bash bin/start_kernel.sh
+
 
 
 ```
