@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-# Bitoshi Blockamoto Game Engine: A Block-Oriented Revolution
+# Block-Oriented Game Engine: A UTXO-Powered Revolution
 
 ## Overview
 
-The Bitoshi Blockamoto Game Engine transcends traditional game engines by leveraging Bitcoin's UTXO model to create decentralized economies within and beyond games. At its core, the engine envisions Bitcoin as a platform for decentralized applications, where UTXOs become the building blocks of programmable economies. It enables games to automatically generate:
+The Block-Oriented Game Engine leverages Bitcoin's UTXO model to create decentralized economies within and beyond games. At its core, the engine envisions Bitcoin as a platform for decentralized applications, where UTXOs become the building blocks of programmable economies. It enables games to automatically generate:
 
 - A native decentralized marketplace.
 - In-game tokens for transactions and rewards.
@@ -13,14 +12,14 @@ This block-oriented approach creates a dynamic ecosystem powered by Bitcoin’s 
 
 ## Vision: Building the Block-Oriented Ecosystem
 
-Imagine a world where Bitcoin's UTXO model isn't just for transactions but serves as the backbone of programmable applications. The Bitoshi Blockamoto Game Engine aims to build this reality, creating a bridge between immutable blockchain structures and dynamic, interactive off-chain applications. 
+Imagine a world where Bitcoin's UTXO model isn't just for transactions but serves as the backbone of programmable applications. The Block-Oriented Game Engine aims to build this reality, creating a bridge between immutable blockchain structures and dynamic, interactive off-chain applications. 
 
 With this engine:
 - Blockchain gaming becomes a microcosm of decentralized societies, where rules are hard-coded yet adaptive to player strategies.
 - UTXOs represent identities, assets, and actions, forming the core of entirely new ecosystems.
 - This block-oriented design transcends gaming, paving the way for decentralized finance, governance, and digital ownership.
 
-The Bitoshi Blockamoto Game Engine isn’t just about games—it’s about reimagining what Bitcoin can achieve.
+The Block-Oriented Game Engine isn’t just about games—it’s about reimagining what Bitcoin can achieve.
 
 ## Key Features
 
@@ -30,6 +29,7 @@ The Bitoshi Blockamoto Game Engine isn’t just about games—it’s about reima
 - **Bitcoin-First Design**: Built around Bitcoin’s UTXO model for decentralization, security, and trustless transactions.
 - **Object-Oriented Architecture**: Encapsulates players, assets, and game components as objects derived from UTXOs.
 - **Scalable and Modular**: Peer-to-peer synchronization supports multiplayer gameplay and scalable development.
+
 
 ## Directory Structure
 
