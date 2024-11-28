@@ -206,7 +206,7 @@ bash bin/start_kernel.sh
 
 ```plaintext
 
-Bitoshi-Blockamoto-Game-Engine/
+uotixs/
 ├── README.md                        # Project overview and documentation
 ├── bin/                             # Scripts for deployment and environment setup
 │   ├── start_kernel.sh              # Kernel startup script
