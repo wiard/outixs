@@ -1,0 +1,20 @@
+{
+    "relays": [
+        {
+            "url": "wss://relay1.nostr.example",
+            "priority": 1,
+            "description": "Primary relay for general use"
+        },
+        {
+            "url": "wss://relay2.nostr.example",
+            "priority": 2,
+            "description": "Backup relay for redundancy"
+        },
+        {
+            "url": "wss://relay3.nostr.example",
+            "priority": 3,
+            "description": "Relay for experimental events"
+        }
+    ]
+}
+
