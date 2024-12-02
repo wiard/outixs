@@ -232,6 +232,7 @@ uotixs/
 │   │   └── marketplace_fsm.py       # FSM (Finite State Machine) implementation for marketplace logic
 │   └── plugins/                     # Plugins for additional features, extendable by users or developers
 │       ├── loader.py                # Loads and manages plugins for the kernel
+│       ├── nostr_plugin.py          # Plugin for managing Nostr integration and Outixs workflows
 │       └── examples/                # Example plugins for educational or demonstration purposes
 │           ├── custom_and_gate.py   # Example plugin implementing a custom AND logic gate
 │           └── example_plugin.py    # Another example plugin for kernel extensions
@@ -249,7 +250,10 @@ uotixs/
 │   ├── networking/                  # Networking services for peer-to-peer communication
 │   │   ├── p2p_messaging.py         # Manages peer-to-peer messaging and communication protocols
 │   │   ├── peer_discovery.py        # Discovers and connects to new peers in the network
-│   │   └── peer_sync.py             # Synchronizes data (e.g., UTXOs) between peers
+│   │   ├── peer_sync.py             # Synchronizes data (e.g., UTXOs) between peers
+│   │   ├── nostr_manager.py         # Manages Nostr relays, keys, and communication
+│   │   ├── nostr_sync.py            # Synchronizes messages and metadata with Outixs
+│   │   └── nostr_plugin_loader.py   # Loads plugins or modules for Nostr integration with Outixs
 │   └── peer_network.py              # Manages the peer network (connection, disconnection, health checks)
 ├── tests/                           # Test files for the project
 │   ├── test_logic_gate_interface.py # Unit tests for the logic gate interface module
@@ -271,7 +275,7 @@ uotixs/
     ├── asset_manager.py             # Manages in-game assets like textures, models, etc.
     ├── game_logic.py                # The core game logic (rules, mechanics)
     └── marketplace_items.py         # Marketplace-specific item handling (e.g., adding, updating items)
-
+```
 
 ```
 
