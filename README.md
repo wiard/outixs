@@ -277,14 +277,13 @@ uotixs/
     └── marketplace_items.py         # Marketplace-specific item handling (e.g., adding, updating items)
 ```
 
-```
 
 ## Touchscreen User Interface
 
 The touchscreen interface for the **UTXO-Powered Game Engine** is designed specifically for a 7-inch Raspberry Pi display, providing an immersive and interactive experience. This interface features various interactive layers, sidebars, and sound-based feedback.
 
 ![NostrBazar Entrance page](https://github.com/wiard/outixs/blob/main/ui/assets/images/image4.png?raw=true)
-![NostrBazar Entrance page](https://raw.githubusercontent.com/wiard/outixs/main/ui/assets/images/image4.png)
+
 
 
 The above image illustrates the interactive UI designed for the Raspberry Pi touchscreen. It showcases the components built using HTML, CSS, and JavaScript.
