@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NostrBazar: Tuning into the Happy Market</title>
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background: #fdfaf5; /* Light background */
+            color: #333; /* Dark text for contrast */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+            color: #4e342e;
+        }
+
+        .subheading {
+            font-size: 1.2rem;
+            margin: 10px 0 30px;
+            color: #6d4c41;
+        }
+
+        .dial-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            background: #e0e0e0;
+            border-radius: 50%;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dial {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            background: #76c7c0;
+            border-radius: 50%;
+        }
+
+        .dial-labels {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .dial-label {
+            position: absolute;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #3e2723;
+        }
+
+        .dial-label:nth-child(1) {
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        .dial-label:nth-child(2) {
+            bottom: 5%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        .dial-label:nth-child(3) {
+            top: 50%;
+            right: 5%;
+            transform: translate(0, -50%);
+        }
+
+        .dial-label:nth-child(4) {
+            top: 50%;
+            left: 5%;
+            transform: translate(0, -50%);
+        }
+
+        .indicator {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: red;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to NostrBazar</h1>
+    <div class="subheading">Your Gateway to Decentralized Marketplaces</div>
+
+    <!-- Tuning Dial -->
+    <div class="dial-container" id="dial-container">
+        <div class="dial">
+            <div class="dial-labels">
+                <div class="dial-label">Art</div>
+                <div class="dial-label">P2P</div>
+                <div class="dial-label">NFTs</div>
+                <div class="dial-label">Gaming</div>
+            </div>
+            <div class="indicator" id="indicator"></div>
+        </div>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="footer">
+        <a href="#explore">Explore Trending Marketplaces</a>
+        <a href="#skip">Skip Intro</a>
+    </div>
+
+    <script>
+        const dialContainer = document.getElementById('dial-container');
+        const indicator = document.getElementById('indicator');
+
+        dialContainer.addEventListener('mousemove', (e) => {
+            const rect = dialContainer.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            // Calculate angle relative to the center of the dial
+            const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
+            const radius = rect.width / 2 - 20; // Adjust radius to position indicator within the 
+circle
+
+            // Calculate indicator position
+            const x = centerX + radius * Math.cos(angle);
+            const y = centerY + radius * Math.sin(angle);
+
+            // Set indicator position
+            indicator.style.left = `${x}px`;
+            indicator.style.top = `${y}px`;
+        });
+    </script>
+</body>
+</html>
+
