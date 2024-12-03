@@ -1,118 +1,72 @@
-/* General Styles */
 body {
+    font-family: "Courier New", Courier, monospace;
+    background: #fdfaf5;
+    color: #333;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #1a1a1a;
-    color: #fff;
-}
-
-/* Top Bar */
-#top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    background: linear-gradient(to right, gold, orange);
-    padding: 0 15px;
-}
-
-#top-bar #balance, #top-bar #player-stats, #top-bar #network-status {
-    font-size: 14px;
-}
-
-#network-status {
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-#network-status.connected {
-    background: green;
-}
-
-#network-status.syncing {
-    background: yellow;
-}
-
-#network-status.disconnected {
-    background: red;
-}
-
-/* Center Grid */
-#center-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 10px;
-}
-
-.tile {
-    width: 100%;
-    height: 100px;
-    border: 2px solid gray;
-    border-radius: 5px;
-}
-
-.tile.active {
-    background: green;
-}
-
-.tile.available {
-    background: gray;
-}
-
-.tile.marketplace {
-    background: blue;
-}
-
-.tile.locked {
-    background: red;
-}
-
-/* Side Panel */
-#side-panel {
-    position: fixed;
-    right: 0;
-    top: 60px;
-    width: 200px;
-    height: calc(100% - 120px);
-    background: rgba(0, 0, 0, 0.8);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    text-align: center;
+    padding: 20px;
 }
 
-.tool-btn {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 14px;
-    color: #fff;
-    background: #444;
-    border: none;
-    border-radius: 5px;
+h1 {
+    font-size: 2.5rem;
+    margin-top: 20px;
+    color: #4e342e;
+}
+
+.subheading {
+    font-size: 1.2rem;
+    margin: 10px 0 30px;
+    color: #6d4c41;
+}
+
+.dial-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 30px auto;
+}
+
+.knob {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #d4d4d4, #8c8c8c);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
     cursor: pointer;
 }
 
-.tool-btn:hover {
-    background: #666;
+.category-display {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #3e2723;
 }
 
-/* Bottom Bar */
-#bottom-bar {
+.navigation {
+    margin-top: 30px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    background: #000;
-    padding: 0 15px;
+    gap: 15px;
 }
 
-#leaderboard-btn, #settings-btn {
-    padding: 10px 15px;
-    background: orange;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.navigation a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 1px solid #333;
+}
+
+.volume-control {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #3e2723;
+    text-align: center;
+}
+
+#volume-slider {
+    width: 200px;
+    margin-top: 10px;
 }
 

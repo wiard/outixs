@@ -3,44 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitoshi Blockamoto Game Engine</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>NostrBazar Entrance</title>
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <!-- Top Bar -->
-    <div id="top-bar">
-        <div id="balance">Coin Energy: 1000</div>
-        <div id="player-stats">Health: 80% | Parcels: 5 | Rank: 10</div>
-        <div id="network-status" class="connected">Connected</div>
+    <h1>Welcome to NostrBazar</h1>
+    <div class="subheading">Tuning into the Happy Market</div>
+
+    <!-- Round Knob -->
+    <div class="dial-container">
+        <div id="knob" class="knob"></div>
     </div>
 
-    <!-- Main Content -->
-    <div id="main-content">
-        <!-- Center Grid -->
-        <div id="center-grid">
-            <div class="tile active"></div>
-            <div class="tile available"></div>
-            <div class="tile marketplace"></div>
-            <div class="tile locked"></div>
-        </div>
+    <!-- Display Selected Category -->
+    <div id="category-display" class="category-display">Category: 
+Art</div>
 
-        <!-- Side Panel -->
-        <div id="side-panel">
-            <button class="tool-btn trade">Trade</button>
-            <button class="tool-btn upgrade">Upgrade</button>
-            <button class="tool-btn build">Build</button>
-            <button class="tool-btn network">Network</button>
-        </div>
+    <!-- Navigation Links -->
+    <div class="navigation">
+        <a href="sound_feedback.html">Sound Feedback</a>
+        <a href="highlight_categories.html">Highlight Categories</a>
+        <a href="rotation_functionality.html">Rotation Functionality</a>
     </div>
+<div class="volume-control">
+    <label for="volume-slider">Volume:</label>
+    <input type="range" id="volume-slider" min="0" max="100" value="50">
+</div>
 
-    <!-- Bottom Bar -->
-    <div id="bottom-bar">
-        <div id="quick-stats">Coins: 500 | Parcel Level: 3</div>
-        <button id="leaderboard-btn">Leaderboard</button>
-        <button id="settings-btn">Settings</button>
-    </div>
-
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
 
