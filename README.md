@@ -362,3 +362,50 @@ With this engine:
 
 The **UTXO-Powered Game Engine** isn’t just about games—it’s about reimagining the potential of Bitcoin.
 
+## Comparison: UTXO vs. Outixs Constructors
+
+| **Feature**           | **UTXO**                                          | **Outixs**                                      |
+|------------------------|---------------------------------------------------|------------------------------------------------|
+| **Purpose**            | Core Bitcoin transaction unit                    | Enhanced UTXO with programmability and metadata|
+| **Base Elements**      | - `txid`: Transaction ID                          | - Mirrors UTXO fields: `txid`, `output_index`, `value`, `script_pub_key` |
+|                        | - `output_index`: Position of output             |                                                |
+|                        | - `value`: Amount in satoshis                    |                                                |
+|                        | - `script_pub_key`: Spending conditions          |                                                |
+| **Programmable Features** | Limited to Bitcoin’s native script language   | - Time locks, oracles, multisig, escrow        |
+|                        |                                                   | - Custom logic for advanced use cases          |
+| **Metadata**           | None                                              | - Tags for categorization (e.g., product, market type) |
+| **Privacy Controls**   | None                                              | - Selective data disclosure options            |
+| **Relay Integration**  | Not applicable                                   | - Tracks interactions with Nostr relays        |
+| **Analytics**          | None                                              | - Lineage tracking                              |
+|                        |                                                   | - Value distribution insights                  |
+| **Status Tracking**    | Spent or unspent                                  | - States: active, locked, or conditional       |
+
+### UTXO Constructor
+```python
+class UTXO:
+    def __init__(self, txid, output_index, value, script_pub_key):
+        self.txid = txid  # Unique transaction ID
+        self.output_index = output_index  # Position of the output
+        self.value = value  # Amount in satoshis
+        self.script_pub_key = script_pub_key  # Spending conditions
+        self.spent = False  # Default status: unspent
+
+class Outixs:
+    def __init__(self, utxo, programmable_conditions=None, metadata=None, privacy_settings=None, relay_info=None):
+        # Base UTXO properties
+        self.txid = utxo.txid
+        self.output_index = utxo.output_index
+        self.value = utxo.value
+        self.script_pub_key = utxo.script_pub_key
+
+        # Outixs-specific extensions
+        self.programmable_conditions = programmable_conditions or []  # Custom conditions
+        self.metadata = metadata or {}  # Contextual information
+        self.privacy_settings = privacy_settings or {}  # Privacy controls
+        self.relay_info = relay_info or {}  # Nostr relay tracking
+
+        # Status and analytics
+        self.status = "unspent"  # Initial state
+        self.analytics = {"lineage": [], "value_distribution": []}  # Analytical data
+
+
