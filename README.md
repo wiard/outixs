@@ -408,4 +408,37 @@ class Outixs:
         self.status = "unspent"  # Initial state
         self.analytics = {"lineage": [], "value_distribution": []}  # Analytical data
 
+```
+
+## Mirroring UTXOs in Outixs: Key Terms and Mapping
+
+Outixs is a programmable layer that mirrors Bitcoin’s UTXOs exactly while extending their functionality. It preserves the integrity of UTXOs while adding programmability, metadata, privacy controls, and analytics, making it ideal for dynamic marketplaces.
+
+### Key Concepts
+
+- **UTXO Terms**: Original Bitcoin fields (`txid`, `output_index`, `value`, `script_pub_key`, `spent`) are directly mirrored for accuracy and transparency.
+- **Outixs Extensions**: Adds new capabilities like `programmable_conditions`, `metadata`, `privacy_settings`, `relay_info`, and `analytics`.
+- **Purpose**: Maintain traceability while enabling advanced use cases like escrow, auctions, and interactive markets.
+
+### UTXO and Outixs Term Mapping
+
+| **UTXO Term**         | **Outixs Equivalent**       | **Explanation**                                     |
+|------------------------|-----------------------------|-----------------------------------------------------|
+| `txid`                | `txid`                     | Maintains the original transaction reference.       |
+| `output_index`        | `output_index`             | Keeps the same position within the transaction.     |
+| `value`               | `value`                   | Mirrors the satoshi amount tied to the UTXO.        |
+| `script_pub_key`      | `script_pub_key`           | Preserves the locking conditions for spending.      |
+| `spent`               | `status`                  | Extended to include states like `locked` or `active`.|
+| Not Applicable        | `programmable_conditions` | Adds time locks, oracles, or multisig logic.        |
+| Not Applicable        | `metadata`                | Contextual tags, descriptions, or ownership details.|
+| Not Applicable        | `privacy_settings`        | Controls visibility and disclosure of attributes.   |
+| Not Applicable        | `relay_info`              | Tracks interaction with Nostr relays.               |
+| Not Applicable        | `analytics`               | Provides usage insights like lineage and distribution.|
+
+### Summary
+
+Outixs enhances Bitcoin’s UTXO model with features tailored for decentralized markets. By mirroring UTXOs exactly and introducing new programmable elements, it creates a seamless bridge between Bitcoin’s security and modern marketplace demands.
+
+
+
 
