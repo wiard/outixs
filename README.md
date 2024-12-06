@@ -204,9 +204,14 @@ bash bin/start_kernel.sh
 ```
 ## Project Structure
 
-```plaintext
+# Outixs Project Structure
 
-uotixs/
+This document provides an organized overview of the `Outixs` project structure, explaining each folder and its purpose.
+
+## Project Structure
+
+```plaintext
+outixs/
 ├── README.md                        # Project overview and documentation
 ├── bin/                             # Scripts for deployment and environment setup
 │   ├── start_kernel.sh              # Kernel startup script
@@ -275,6 +280,7 @@ uotixs/
     ├── asset_manager.py             # Manages in-game assets like textures, models, etc.
     ├── game_logic.py                # The core game logic (rules, mechanics)
     └── marketplace_items.py         # Marketplace-specific item handling (e.g., adding, updating items)
+
 ```
 
 
