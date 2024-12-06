@@ -252,75 +252,160 @@ This document provides an organized overview of the `Outixs` project structure, 
 ## Project Structure
 
 ```plaintext
+# Outixs Project Directory Structure
+
+The following is the full directory structure of the Outixs project:
+
+```plaintext
 outixs/
-├── README.md                        # Project overview and documentation
-├── bin/                             # Scripts for deployment and environment setup
-│   ├── start_kernel.sh              # Kernel startup script
-│   ├── deploy.sh                    # Deployment script for Raspberry Pi
-│   └── setup_env.sh                 # Environment setup script (dependencies, virtual environments, etc.)
-├── config/                          # Configuration files (settings for kernel, peers, etc.)
-│   ├── kernel_config.json           # Kernel-specific configuration parameters (e.g., resource limits, initialization settings)
-│   └── peer_nodes.json              # Peer node connection details (IP addresses, ports, etc.)
-├── data/                            # Databases and runtime data storage
-│   ├── utxo.db                      # UTXO (Unspent Transaction Output) database for blockchain data persistence
-│   ├── marketplace.db               # Marketplace items and transactions database (e.g., items, prices, sales)
-│   └── peer_state.db                # Tracks peer statuses and messages within the network
-├── docs/                            # Documentation folder with project-related guides and explanations
-│   └── README.md                    # High-level documentation on the project setup and usage
-├── kernel/                          # Kernel-level core functionality and system components
-│   ├── core/                        # Core components responsible for managing the kernel
-│   │   ├── blockchain_sync.py       # Synchronizes blockchain data with peers
-│   │   ├── kernel_controller.py     # Handles kernel operations, including initialization and shutdown
-│   │   └── utxo_manager.py          # Manages UTXO operations such as adding and fetching UTXOs
-│   ├── modules/                     # Kernel modules to extend functionality (e.g., logic gates, FSMs)
-│   │   ├── logic_gate_interface.py  # Interface for creating and managing custom logic gates
-│   │   ├── state_machine_interface.py  # Interface for managing FSMs (Finite State Machines)
-│   │   └── marketplace_fsm.py       # FSM (Finite State Machine) implementation for marketplace logic
-│   └── plugins/                     # Plugins for additional features, extendable by users or developers
-│       ├── loader.py                # Loads and manages plugins for the kernel
-│       ├── nostr_plugin.py          # Plugin for managing Nostr integration and Outixs workflows
-│       └── examples/                # Example plugins for educational or demonstration purposes
-│           ├── custom_and_gate.py   # Example plugin implementing a custom AND logic gate
-│           └── example_plugin.py    # Another example plugin for kernel extensions
-├── lib/                             # Shared libraries and utilities used across the system
-│   ├── config_loader.py             # Loads and validates configuration files (e.g., JSON, YAML)
-│   ├── data_serializer.py           # Handles serialization and deserialization of data for storage or network transfer
-│   ├── logger.py                    # Logging utility for debugging and monitoring
-│   ├── plugin_validator.py          # Validates the integrity and compatibility of plugins
-│   └── resource_optimizer.py        # Optimizes resource usage (memory, CPU, network) for efficiency
-├── services/                        # Services that interact with the kernel and handle specific business logic
-│   ├── marketplace/                 # Marketplace-related services for item management, transactions, etc.
-│   │   ├── coin_system.py           # Manages custom coin systems used within the economy
-│   │   ├── marketplace_manager.py   # Core logic for marketplace functionality (adding, updating items, handling sales)
-│   │   └── transaction_handler.py   # Handles transactions such as purchasing and refunds
-│   ├── networking/                  # Networking services for peer-to-peer communication
-│   │   ├── p2p_messaging.py         # Manages peer-to-peer messaging and communication protocols
-│   │   ├── peer_discovery.py        # Discovers and connects to new peers in the network
-│   │   ├── peer_sync.py             # Synchronizes data (e.g., UTXOs) between peers
-│   │   ├── nostr_manager.py         # Manages Nostr relays, keys, and communication
-│   │   ├── nostr_sync.py            # Synchronizes messages and metadata with Outixs
-│   │   └── nostr_plugin_loader.py   # Loads plugins or modules for Nostr integration with Outixs
-│   └── peer_network.py              # Manages the peer network (connection, disconnection, health checks)
-├── tests/                           # Test files for the project
-│   ├── test_logic_gate_interface.py # Unit tests for the logic gate interface module
-│   ├── test_state_machine_interface.py # Unit tests for the state machine interface module
-│   └── ... (other tests)            # Other test files for various components (kernel, services, etc.)
-├── ui/                              # User interfaces and assets for interacting with the system
-│   ├── html/                        # HTML files for displaying the UI
-│   │   ├── index.html               # Main HTML file that renders the user interface
-│   │   └── styles.css               # Stylesheet for UI layout and design
-│   ├── js/                          # JavaScript for dynamic behavior and interactivity
-│   │   └── script.js                # Script for handling UI logic and events (e.g., user actions)
-│   ├── assets/                      # UI assets such as images, icons, or screenshots
-│   │   └── ui_screenshots/          # Folder containing UI screenshots or assets for design
-│   │       └── touchscreen_ui.png
-└── applications/                    # High-level application logic that integrates with various modules
-    ├── gameplay/                    # Game-specific logic for engine, levels, etc.
-    │   ├── engine.py                # Core game engine logic
-    │   └── level_loader.py          # Manages the loading of game levels or stages
-    ├── asset_manager.py             # Manages in-game assets like textures, models, etc.
-    ├── game_logic.py                # The core game logic (rules, mechanics)
-    └── marketplace_items.py         # Marketplace-specific item handling (e.g., adding, updating items)
+├── README.md
+├── applications/
+│   ├── asset_manager.py
+│   ├── game_logic.py
+│   ├── gameplay/
+│   │   ├── engine.py
+│   │   └── level_loader.py
+│   └── marketplace_items.py
+├── bin/
+│   ├── deploy.sh
+│   ├── setup_env.sh
+│   └── start_kernel.sh
+├── cli.py
+├── config/
+│   ├── kernel_config.json
+│   └── peer_nodes.json
+├── data/
+│   ├── marketplace.db
+│   ├── peer_state.db
+│   └── utxo.db
+├── docs/
+│   └── README.md
+├── file_list.txt
+├── flask_app/
+│   ├── app.py
+│   ├── static/
+│   └── templates/
+├── inscription/
+├── interfaces/
+│   ├── game_component.py
+│   ├── kernel_interface.py
+│   ├── marketplace_interface.py
+│   ├── network_interface.py
+│   └── plugin_interface.py
+├── kernel/
+│   ├── core/
+│   │   ├── blockchain_sync.py
+│   │   ├── kernel_controller.py
+│   │   └── utxo_manager.py
+│   ├── modules/
+│   │   ├── logic_gate_interface.py
+│   │   ├── marketplace_fsm.py
+│   │   └── state_machine_interface.py
+│   └── plugins/
+│       ├── examples/
+│       │   ├── custom_and_gate.py
+│       │   └── example_plugin.py
+│       └── loader.py
+├── lib/
+│   ├── config_loader.py
+│   ├── data_serializer.py
+│   ├── logger.py
+│   └── plugin_validator.py
+├── marketplace_data.json
+├── nostr/
+│   ├── events/
+│   │   ├── event_manager.py
+│   │   └── nostr_event_types.py
+│   ├── plugins/
+│   │   ├── nostr_marketplace.py
+│   │   └── nostr_notifications.py
+│   ├── relays/
+│   │   ├── active_relay_tracker.py
+│   │   ├── default_relays.json
+│   │   ├── relay_health.py
+│   │   └── tagging_engine.py
+│   └── utils/
+│       ├── key_manager.py
+│       ├── nostr_crypt.py
+│       └── relay_connector.py
+├── nostrbazar/
+│   ├── nostrbazar_entrance.html
+│   └── nostrbazar_entrance_two.html
+├── outixs/
+│   ├── listeners/
+│   │   ├── active_listener.py
+│   │   └── listener_manager.py
+│   ├── metadata_utils.py
+│   ├── outixs_manager.py
+│   ├── outixs_validator.py
+│   ├── state_tracker.py
+│   └── taggers/
+│       ├── auto_tagger.py
+│       ├── tag_config.json
+│       └── tag_rules.py
+├── plugins/
+├── raspi/
+│   ├── monitor.py
+│   ├── resource_manager.py
+│   └── watchdog.sh
+├── requirements.txt
+├── scripts/
+├── services/
+│   ├── marketplace/
+│   │   ├── coin_system.py
+│   │   ├── marketplace_manager.py
+│   │   └── transaction_handler.py
+│   ├── networking/
+│   │   ├── p2p_messaging.py
+│   │   ├── peer_discovery.py
+│   │   ├── peer_network.py
+│   │   ├── peer_sync.py
+│   │   └── relay_discovery.py
+│   ├── node_services/
+│   │   ├── bitcoin_manager.py
+│   │   ├── inscription_tool.py
+│   │   └── nostr_node_manager.py
+│   ├── simulations/
+│   │   └── simulation_environment.py
+│   └── user_manager.py
+├── tests/
+│   ├── test_asset_manager.py
+│   ├── test_blockchain_sync.py
+│   ├── test_coin_system.py
+│   ├── test_db_synchronization.py
+│   ├── test_game_logic.py
+│   ├── test_kernel_controller.py
+│   ├── test_logic_gate_interface.py
+│   ├── test_marketplace_manager.py
+│   ├── test_outixs_validator.py
+│   ├── test_peer_discovery.py
+│   ├── test_peer_network.py
+│   ├── test_peer_sync.py
+│   ├── test_resource_optimizer.py
+│   ├── test_state_machine_interface.py
+│   ├── test_transaction_handler.py
+│   └── test_utxo_manager.py
+└── ui/
+    ├── assets/
+    │   ├── audio/
+    │   │   └── beep.mp3
+    │   ├── images/
+    │   │   ├── image1.png
+    │   │   ├── image2.png
+    │   │   ├── image3.png
+    │   │   ├── image4.png
+    │   │   └── touchscreen_ui.png
+    ├── css/
+    │   └── styles.css
+    ├── html/
+    │   ├── highlight_categories.html
+    │   ├── index.html
+    │   └── sound_feedback.html
+    ├── js/
+    │   ├── advanced_script.js
+    │   └── script.js
+    └── relay_dashboard.html
+
 
 ```
 
