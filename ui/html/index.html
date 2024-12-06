@@ -3,33 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NostrBazar Entrance</title>
+    <title>NostrBazar</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <h1>Welcome to NostrBazar</h1>
-    <div class="subheading">Tuning into the Happy Market</div>
-
-    <!-- Round Knob -->
-    <div class="dial-container">
-        <div id="knob" class="knob"></div>
-    </div>
-
-    <!-- Display Selected Category -->
-    <div id="category-display" class="category-display">Category: 
-Art</div>
-
-    <!-- Navigation Links -->
-    <div class="navigation">
-        <a href="sound_feedback.html">Sound Feedback</a>
-        <a href="highlight_categories.html">Highlight Categories</a>
-        <a href="rotation_functionality.html">Rotation Functionality</a>
-    </div>
-<div class="volume-control">
-    <label for="volume-slider">Volume:</label>
-    <input type="range" id="volume-slider" min="0" max="100" value="50">
-</div>
-
+    <header class="main-header">
+        <h1>Welcome to NostrBazar</h1>
+        <p>Your gateway to decentralized marketplaces</p>
+    </header>
+    <main>
+        <section class="tuning-knob">
+            <div class="knob" id="knob"></div>
+            <div class="category-display" id="category-display">Category: None</div>
+        </section>
+        <section class="volume-control">
+            <label for="volume-slider">Volume</label>
+            <input type="range" id="volume-slider" min="0" max="100" value="50">
+        </section>
+        <section class="relay-list">
+            <h2>Active Relays</h2>
+            <form id="listener-form">
+                <input type="text" id="relay-url" placeholder="Relay URL" required>
+                <input type="text" id="tags" placeholder="Tags (comma-separated)" required>
+                <button type="submit">Add Relay</button>
+            </form>
+            <input type="text" id="search-tags" placeholder="Search by tags...">
+            <ul id="relay-list"></ul>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <p>&copy; 2024 NostrBazar - All rights reserved.</p>
+    </footer>
     <script src="../js/script.js"></script>
 </body>
 </html>

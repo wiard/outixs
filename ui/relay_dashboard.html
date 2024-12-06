@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relay Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Relay Dashboard</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Active Relays</h2>
+            <ul id="relay-list"></ul>
+        </section>
+        <section>
+            <h2>Add New Listener</h2>
+            <form id="listener-form">
+                <label for="relay-url">Relay URL:</label>
+                <input type="text" id="relay-url" name="relay-url" 
+required>
+                <label for="tags">Tags:</label>
+                <input type="text" id="tags" name="tags" required>
+                <button type="submit">Add Listener</button>
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+

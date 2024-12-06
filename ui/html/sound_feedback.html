@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sound Feedback</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Sound Feedback for the Knob</h1>
+    <div class="subheading">Click the knob to hear a sound.</div>
+    <div class="dial-container">
+        <div id="knob" class="knob"></div>
+    </div>
+    <script>
+        const knob = document.getElementById('knob');
+        const audio = new Audio('tuning_sound.mp3');
+        knob.addEventListener('click', () => {
+            audio.play();
+        });
+    </script>
+</body>
+</html>
+

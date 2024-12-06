@@ -1,54 +1,68 @@
-// Select DOM elements
-const knob = document.getElementById('knob');
-const categoryDisplay = document.getElementById('category-display');
+document.addEventListener("DOMContentLoaded", function () {
+    // Relay Form Handling
+    const form = document.getElementById("listener-form");
+    const relayList = document.getElementById("relay-list");
 
-// Audio setup
-const audio = new Audio('../assets/audio/beep.mp3');
-audio.volume = 0.5; // Default volume (50%)
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-// Categories for the knob
-const categories = ['Art', 'P2P', 'NFTs', 'Gaming'];
+        const relayUrl = document.getElementById("relay-url").value.trim();
+        const tags = document.getElementById("tags").value.split(",").map(tag => tag.trim());
 
-let isDragging = false; // Tracks whether the knob is being dragged
+        if (relayUrl && tags.length > 0) {
+            addRelayToUI(relayUrl, tags);
+        } else {
+            alert("Please provide a relay URL and at least one tag.");
+        }
 
-// Handle knob dragging for rotation
-knob.addEventListener('mousedown', () => {
-    isDragging = true; // Start dragging
-});
-
-document.addEventListener('mouseup', () => {
-    isDragging = false; // Stop dragging
-});
-
-document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-        const rect = knob.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-
-        // Calculate the angle of rotation
-        const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) 
-* (180 / Math.PI) + 180;
-        knob.style.transform = `rotate(${angle}deg)`; // Rotate knob
-
-        // Determine category based on angle
-        const categoryIndex = Math.floor((angle / 360) * 
-categories.length) % categories.length;
-        categoryDisplay.innerText = `Category: 
-${categories[categoryIndex]}`;
-    }
-});
-
-// Play sound when knob is clicked
-knob.addEventListener('click', () => {
-    audio.play();
-});
-
-// Optional: Volume control slider
-const volumeSlider = document.getElementById('volume-slider');
-if (volumeSlider) {
-    volumeSlider.addEventListener('input', (e) => {
-        audio.volume = e.target.value / 100; // Adjust volume
+        form.reset();
     });
-}
+
+    function addRelayToUI(relayUrl, tags) {
+        const relayItem = document.createElement("li");
+        relayItem.dataset.relay = relayUrl;
+
+        const tagSpan = document.createElement("span");
+        tagSpan.className = "tags";
+        tagSpan.textContent = `Tags: ${tags.join(", ")}`;
+
+        relayItem.textContent = `Relay: ${relayUrl} `;
+        relayItem.appendChild(tagSpan);
+        relayList.appendChild(relayItem);
+
+        simulateRelayStatus(relayUrl);
+    }
+
+    // Simulate Relay Updates
+    function simulateRelayStatus(relayUrl) {
+        const statuses = ["active", "inactive", "overloaded"];
+        setInterval(() => {
+            const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+            updateRelayStatus(relayUrl, randomStatus);
+        }, 5000);
+    }
+
+    function updateRelayStatus(relayUrl, status) {
+        const relayItem = document.querySelector(`li[data-relay="${relayUrl}"]`);
+        if (relayItem) {
+            relayItem.querySelector(".tags").textContent += ` | Status: ${status}`;
+        }
+    }
+
+    // Dynamic Tagging and Searching
+    const searchField = document.getElementById("search-tags");
+    searchField.addEventListener("input", function () {
+        const searchValue = searchField.value.trim().toLowerCase();
+        const relayItems = relayList.querySelectorAll("li");
+
+        relayItems.forEach(item => {
+            const tags = item.querySelector(".tags").textContent.toLowerCase();
+            if (tags.includes(searchValue)) {
+                item.style.display = "";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
+});
 
