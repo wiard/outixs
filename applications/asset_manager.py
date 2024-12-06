@@ -1,72 +1,37 @@
 import sqlite3
 
 class AssetManager:
-    def __init__(self, db_path="database/utxos.db"):
+    def __init__(self, db_path="data/marketplace.db"):
         self.conn = sqlite3.connect(db_path)
-        self.cur = self.conn.cursor()
+        self.cursor = self.conn.cursor()
+        self._create_table()
 
-    def create_asset_from_utxo(self, txid, output_index, asset_name, metadata):
-        self.cur.execute(
-            "SELECT * FROM utxos WHERE txid = ? AND output_index = ?",
-            (txid, output_index),
-        )
-        utxo = self.cur.fetchone()
-
-        if not utxo:
-            raise ValueError(f"UTXO {txid}:{output_index} does not exist.")
-
-        self.cur.execute(
-            """
-            INSERT INTO assets (txid, output_index, asset_name, metadata)
-            VALUES (?, ?, ?, ?)
-        """,
-            (txid, output_index, asset_name, metadata),
-        )
-
-        self.conn.commit()
-        return f"Asset '{asset_name}' created from UTXO {txid}:{output_index}."
-
-    def get_all_assets(self):
-        self.cur.execute("SELECT * FROM assets")
-        return self.cur.fetchall()
-
-    def get_assets_by_name(self, asset_name):
-        self.cur.execute("SELECT * FROM assets WHERE asset_name = ?", (asset_name,))
-        return self.cur.fetchall()
-
-    def delete_asset(self, asset_name):
-        self.cur.execute("DELETE FROM assets WHERE asset_name = ?", (asset_name,))
-        self.conn.commit()
-        return f"Asset '{asset_name}' deleted."
-
-    def close(self):
-        self.conn.close()
-
-if __name__ == "__main__":
-    manager = AssetManager()
-
-    try:
-        print(
-            manager.create_asset_from_utxo(
-                txid="5f240ed7aa2b4cd8ba46baf46a8e3e43e430f33de72c93a0ca5e06fe9cb95052",
-                output_index=0,
-                asset_name="Golden Sword",
-                metadata="A unique sword with magical powers.",
+    def _create_table(self):
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS assets (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                metadata TEXT
             )
-        )
-    except ValueError as e:
-        print(e)
+        """)
+        self.conn.commit()
 
-    print("\nAll Assets:")
-    for asset in manager.get_all_assets():
-        print(asset)
+    def add_asset(self, name, metadata):
+        self.cursor.execute("INSERT INTO assets (name, metadata) VALUES (?, ?)", (name, 
+metadata))
+        self.conn.commit()
+        return self.cursor.lastrowid
 
-    print("\nAssets named 'Golden Sword':")
-    for asset in manager.get_assets_by_name("Golden Sword"):
-        print(asset)
+    def get_asset_metadata(self, asset_id):
+        self.cursor.execute("SELECT metadata FROM assets WHERE id = ?", (asset_id,))
+        result = self.cursor.fetchone()
+        return result[0] if result else None
 
-    print("\nDeleting asset 'Golden Sword':")
-    print(manager.delete_asset("Golden Sword"))
+    def update_asset_metadata(self, asset_id, metadata):
+        self.cursor.execute("UPDATE assets SET metadata = ? WHERE id = ?", (metadata, asset_id))
+        self.conn.commit()
 
-    manager.close()
+    def remove_asset(self, asset_id):
+        self.cursor.execute("DELETE FROM assets WHERE id = ?", (asset_id,))
+        self.conn.commit()
 

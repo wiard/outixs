@@ -1,41 +1,19 @@
-import sqlite3
+from nostr.relay_manager import RelayManager
+from nostr.event import Event
 
+class NostrNodeManager:
+    def __init__(self, relays):
+        self.relay_manager = RelayManager()
+        for relay in relays:
+            self.relay_manager.add_relay(relay)
 
-def initialize_database(db_path="database/utxos.db"):
-    conn = sqlite3.connect(db_path)
-    cur = conn.cursor()
+    def connect(self):
+        self.relay_manager.open_connections()
 
-    # Create the UTXOs table
-    cur.execute(
-        """
-        CREATE TABLE IF NOT EXISTS utxos (
-            txid TEXT,
-            output_index INTEGER,
-            address TEXT,
-            value INTEGER,
-            block_height INTEGER,
-            PRIMARY KEY (txid, output_index)
-        );
-    """
-    )
+    def publish_event(self, private_key, content):
+        event = Event(private_key=private_key, content=content)
+        self.relay_manager.publish(event)
 
-    # Create the Assets table
-    cur.execute(
-        """
-        CREATE TABLE IF NOT EXISTS assets (
-            txid TEXT,
-            output_index INTEGER,
-            asset_name TEXT UNIQUE,
-            metadata TEXT,
-            PRIMARY KEY (txid, output_index)
-        );
-    """
-    )
+    def disconnect(self):
+        self.relay_manager.close_connections()
 
-    conn.commit()
-    conn.close()
-    print(f"Database initialized at {db_path}")
-
-
-if __name__ == "__main__":
-    initialize_database()
