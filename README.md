@@ -620,6 +620,43 @@ Outixs enhances Bitcoin’s UTXO model with features tailored for decentralized 
 - **Transparency**: Every Outixs object's lineage is verifiable, maintaining trust through Bitcoin's immutable ledger while enabling off-chain flexibility.
 - **Flexibility**: Developers and users can customize each step, adapting the system to suit gaming, finance, or other transactional environments.
 
+- ```markdown
+# Backoffice and Frontoffice of Outixs
+
+## Key Components and Roles
+
+| **Aspect**             | **Backoffice**                                                                                     | **Frontoffice**                                                                                      |
+|-------------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| **Role**               | Core processing, automation, and infrastructure management.                                       | User-facing layer enabling intuitive interaction with the system.                                   |
+| **Key Components**      | - **Data Management**: Handles UTXOs, databases (e.g., `utxo.db`, `marketplace.db`).              | - **Graphical User Interface (GUI)**: Web and touchscreen interfaces for user interaction.          |
+|                         | - **Tagging & Relay Discovery**: Automates tagging, relay discovery, and listener management.     | - **Marketplace**: Enables decentralized trading of assets and programmable transactions.           |
+|                         | - **Programmable Logic**: Executes workflows like escrow, time locks, and conditional payments.   | - **User Features**: Relay dashboard, Outixs object manager, and real-time updates.                 |
+|                         | - **System Coordination**: Ensures smooth blockchain sync, state management, and node services.   | - **APIs and Extensions**: Provides tools for developers to build new applications or extensions.   |
+| **Primary Files**       | - `kernel/`: Blockchain sync, state management.                                                  | - `ui/`: Web and touchscreen UI with HTML, CSS, and JavaScript.                                     |
+|                         | - `node_services/`: Handles Bitcoin node (`bitcoin_manager.py`), Nostr relays (`nostr_node_manager.py`), and inscriptions (`inscription_tool.py`). | - `ui/html/index.html`: Main user interface for interacting with Outixs.                             |
+|                         | - `outixs/`: Programmable conditions, listeners, and taggers for dynamic relay interaction.       |                                                                                                      |
+| **Purpose**             | - Ensure data consistency, integrity, and security.                                              | - Simplify user interaction with complex processes.                                                 |
+|                         | - Automate workflows like tagging and relay discovery.                                           | - Provide actionable insights and control over Outixs objects.                                      |
+|                         | - Execute programmable infrastructure for transactions and interactions.                         | - Enable seamless interaction with decentralized marketplaces and relays.                           |
+| **Integration**         | - Outputs data to the Frontoffice for real-time updates on relays, Outixs, and transactions.      | - Sends user instructions to the Backoffice for processing and displays insights from Backoffice outputs. |
+| **Examples**            | - Automates tagging and discovery of relays in the Nostr network.                                | - Users initiate and manage transactions via the Relay Dashboard and Marketplace.                   |
+|                         | - Manages and synchronizes Outixs state with Bitcoin and Nostr.                                  | - Provides real-time analytics, status updates, and user-friendly tools for Outixs interaction.     |
+
+---
+
+## Outputs from Backoffice and Frontoffice
+
+| **Output Type**        | **Backoffice Outputs**                                                                    | **Frontoffice Outputs**                                                                     |
+|------------------------|-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| **Relay Data**         | - Optimized tags for Nostr relays.                                                        | - Dynamic list of available and relevant relays.                                           |
+| **Transaction Logs**   | - Detailed transaction history anchored to Bitcoin.                                       | - User-friendly transaction summaries and progress updates.                                |
+| **Analytics**          | - Metadata-enriched logs of Outixs activity.                                              | - Visualized analytics for relay interaction and transaction performance.                  |
+| **State Updates**      | - Status transitions for Outixs objects (e.g., `active`, `pending`, `completed`).          | - Real-time status updates and notifications for user interactions.                        |
+| **Marketplace Updates**| - Synced marketplace data including asset states and trade history.                        | - Interactive asset management and marketplace dashboards.                                 |
+| **Programmability**    | - Executed workflows for programmable Outixs logic (e.g., escrow, split payments).         | - Configurable settings and wizards for defining programmable logic.                       |
+| **Node Health**        | - Monitoring data from `node_services` (Bitcoin and Nostr nodes, relay status).            | - Alerts and performance indicators for node health and connectivity.                      |
+```
+
 
 
 
